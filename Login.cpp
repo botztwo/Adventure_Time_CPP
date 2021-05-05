@@ -1,8 +1,8 @@
 #include "Login.h"
 
     User_info::User_info(){
-            //username = u;
-            //password = p;
+        followed = 0;
+        follow = 0;
             
         cerr << "This constructor ran" << endl; 
         }
@@ -49,9 +49,12 @@
             f << username << endl;
             f << password << endl;
             f << email << endl;
+            f << "Followers: " << followed << endl;
+            f << "Following: " << follow << endl;
             f.close();
             login_test();
         }
+        
         else if (choice == 2){//login
             bool status = IsloggedIn();
             if (!status){
