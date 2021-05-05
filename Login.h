@@ -21,6 +21,7 @@ class User_info{
         void Test_for_Lab();
         bool IsloggedIn(); 
         int login_test();
+        void first_page();
 
 };
 

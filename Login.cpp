@@ -48,13 +48,13 @@
             f.open(username +".txt");
             f << username << endl;
             f << password << endl;
-            f << email << endl;
+            f << "Email: " << email << endl;
             f << "Followers: " << followed << endl;
             f << "Following: " << follow << endl;
             f.close();
             login_test();
         }
-        
+
         else if (choice == 2){//login
             bool status = IsloggedIn();
             if (!status){
@@ -63,12 +63,36 @@
             }
             else{
                 cout << "Successful login" << endl;
+                first_page();
                 return 1;
             }
         }
         else if (choice == 3){
             cout << "Bye!" << endl;
             return 0;
+        }
+    }
+    void User_info::first_page(){
+        cout << "***************Welcome to Adventure Time!***************" << endl;
+        cout << "Home Page" << endl;
+        cout << "Select Option: " << endl;
+        cout << "1. Social Page" << endl;
+        cout << "2. Add Trip" << endl;
+        cout << "3. User_page" << endl;
+        cout << "4. Logout" << endl;
+        cout << ">> ";
+        cin >> choice;
+        if (choice == 1){
+            cout << "move to socials"; //set up connection with a shared server
+        }
+        else if (choice ==2){
+            cout << "move to Bennet's page";
+        }
+        else if (choice == 3){
+            cout << "move to my page";
+        }
+        else if (choice == 4){
+            login_test();
         }
     }
 
