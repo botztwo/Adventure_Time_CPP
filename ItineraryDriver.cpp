@@ -10,7 +10,7 @@ using namespace std;
 int main(){
 
     Itinerary mexico(4,25,2021,4,30,2021);
-    cout<<mexico.getTripLength()<< endl;
-    mexico.planDay();
+    //cout<<mexico.getTripLength()<< endl;
+    mexico.planNewDay();
 
 }
