@@ -31,20 +31,24 @@
     
         cout << "1: Register"<<endl;
         cout << "2: Login"<<endl;
-        cout << "Select Register or Login via number(1,2): ";
+        cout << "3: Exit" << endl;
+        cout << "Select Register or Login via number(1,2,3): ";
         cin >> choice;
 
         if (choice == 1){//register
             
-            cout << "select a username: ";
+            cout << "Select a username: ";
             cin >> username;
-            cout << "select a password: ";
+            cout << "Select a password: ";
             cin >> password;
+            cout << "Input your email: ";
+            cin >> email;
 
             ofstream f;
             f.open(username +".txt");
             f << username << endl;
             f << password << endl;
+            f << email << endl;
             f.close();
             login_test();
         }
@@ -58,6 +62,10 @@
                 cout << "Successful login" << endl;
                 return 1;
             }
+        }
+        else if (choice == 3){
+            cout << "Bye!" << endl;
+            return 0;
         }
     }
 
