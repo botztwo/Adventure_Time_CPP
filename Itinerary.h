@@ -12,12 +12,14 @@ class Itinerary{
     Date endDate;
     int triplength;
     Day**dailyPlan;
+    int plannedDays;
 
 
     public:
     Itinerary(int sm,int sd,int sy, int em,int ed,int ey); 
     int getTripLength();
-    void planDay();
+    void planNewDay();
+    void displayDayPlan(int i);
 };
 #endif
 

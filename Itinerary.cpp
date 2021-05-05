@@ -67,8 +67,7 @@ int Itinerary::getTripLength(){// all days(year * 365) + day of month + month + 
 }
 
 void Itinerary::displayDayPlan(int i){
-
-cout<< "Day "<< i+1 << " schedule"<< endl;
-dailyPlan[i]->display();
+            cout<< "Day "<< i+1 << " schedule"<< endl;
+            dailyPlan[i]->display();
 
 }
