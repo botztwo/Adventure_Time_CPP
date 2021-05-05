@@ -9,11 +9,14 @@ class User_info{
     private:
         string username;
         string password;
+        string email;
     protected:
         string un;
         string pw;
         int choice;
     public:
+        int followed;
+        int follow;
         User_info();
         void Test_for_Lab();
         bool IsloggedIn(); 

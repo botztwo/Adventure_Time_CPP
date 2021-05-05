@@ -52,7 +52,7 @@ int countLeapYears(int m, int y ){
     return years / 4 - years / 100 + years / 400;
 }
 
-int Itinerary::getTripLength( ){// all days(year * 365) + day of month + month + leap days added on
+int Itinerary::getTripLength(){// all days(year * 365) + day of month + month + leap days added on
     const int monthDays[12]= {31, 28, 31, 30, 31, 30,31, 31, 30, 31, 30, 31};
     long int n1 = startDate.getYear()* 365 + startDate.getDay();
     for (int i = 0; i < startDate.getMonth() - 1; i++){
