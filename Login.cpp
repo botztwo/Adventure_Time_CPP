@@ -5,7 +5,7 @@
         followed = 0;
         follow = 0;
             
-        cerr << "This constructor ran" << endl; 
+        //cerr << "This constructor ran" << endl; 
         }
         
     void User_info::Test_for_Lab(){
@@ -74,7 +74,7 @@
         }
     }
     void User_info::first_page(){
-        cout << "***************Welcome to Adventure Time" << username << "!***************" << endl;
+        cout << "***************Welcome to Adventure Time " << username << "!***************" << endl;
         cout << "Home Page" << endl;
         cout << "Select Option: " << endl;
         cout << "1. Social Page" << endl;
@@ -88,7 +88,10 @@
 
         }
         else if (choice ==2){
-            cout << "move to Bennet's page";
+            Itinerary mexico(4,25,2021,4,30,2021);
+            //cout<<mexico.getTripLength()<< endl;
+            mexico.planNewDay();
+            //mexico[1];
         }
         else if (choice == 3){
             cout << "move to my page";

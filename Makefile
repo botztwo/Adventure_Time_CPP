@@ -2,13 +2,13 @@
 
 all: LoginDriver DateDriver DayDriver ItineraryDriver
 
-LoginDriver:	Login.o LoginDriver.o
-	g++ -g -Wall -o LoginDriver Login.o LoginDriver.o
+LoginDriver:	Login.o LoginDriver.o Itinerary.o Date.o Day.o
+	g++ -g -Wall -o LoginDriver Login.o LoginDriver.o Itinerary.o Date.o Day.o
 
-Login.o:	Login.cpp Login.h
+Login.o:	Login.cpp Login.h Itinerary.h Date.h Day.h
 	g++ -g -Wall -c Login.cpp
 
-LoginDriver.o:	LoginDriver.cpp Login.h
+LoginDriver.o:	LoginDriver.cpp Login.h Itinerary.h Date.h Day.h
 	g++ -g -Wall -c LoginDriver.cpp
 
 DateDriver:  Date.o DateDriver.o
