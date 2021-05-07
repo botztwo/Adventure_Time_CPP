@@ -5,6 +5,10 @@
 #include <fstream>
 #include"../react.h"
 #include"Itinerary.h"
+#include <sstream>
+#include "Account.h"
+#include "Comm.h"
+#include "react.h"
 using namespace std;
 
 class User_info{
@@ -42,9 +46,8 @@ class Chat :public Social{
         void append_message(const string &msg);
         void display() const;
         void print_to_file(const char *filename) const;
-        //void put_in_global_mem(int text_offset) const;
-        //void clear();
-        //void get_from_global_mem(int text_offset);
+        void put_in_global_mem(int offset);
+        void get_from_global_mem(int offset);
         //~Messages();
 }; 
 
