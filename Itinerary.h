@@ -20,6 +20,9 @@ class Itinerary{
     int getTripLength();
     void planNewDay();
     void displayDayPlan(int i);
+    Day& operator[](int i);
+    void getDay(int i);
+
 };
 #endif
 

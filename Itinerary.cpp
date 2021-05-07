@@ -9,7 +9,7 @@ using namespace std;
 
 Itinerary::Itinerary(int sm,int sd,int sy, int em,int ed,int ey):startDate(sm,sd,sy), endDate(em,ed,ey){
     triplength = getTripLength( );
-    int plannedDays = 1;
+    plannedDays = 0;
     // cout << triplength << endl;
     dailyPlan = new Day*[triplength];
     for(int i=0;i<triplength; ++i){
@@ -18,16 +18,18 @@ Itinerary::Itinerary(int sm,int sd,int sy, int em,int ed,int ey):startDate(sm,sd
 }
 
 void Itinerary::planNewDay(){ // this method in incomplete used for testing purposes. //Maybe you should just do this for one day(save the day) call function every tiem add new day. 
-    for(int i=0; i<triplength; ++i){
-        dailyPlan[i]= new Day;
+    //for(int i=0; i<triplength; ++i){
+        ++plannedDays;//increment here afteryou say neew dayt at 0.
+        dailyPlan[plannedDays]= new Day;
         bool running=1;
         int actCount =1;
-        plannedDays +=i;
+        cout<<"Planning day "<<plannedDays<< "! " <<endl;
+        //++plannedDays;//increment here afteryou say neew dayt at 0.
         while (running){
             std::string activity;
             cout << "Enter Activity number ("<< actCount<< ") for day " << plannedDays << ":";
             cin >> activity;
-            dailyPlan[i]->addActivity(activity);// stopped here this is test code 
+            dailyPlan[plannedDays]->addActivity(activity);// stopped here this is test code 
             int yes=0;
             cout << "add another activity? Yes(1)/No(0): ";
             cin >> yes;
@@ -35,10 +37,11 @@ void Itinerary::planNewDay(){ // this method in incomplete used for testing purp
                 running=0;
             }
             ++actCount;
+            //+plannedDays;
     }
-    displayDayPlan(i);
+   // displayDayPlan(i);
     }
-}
+
 
                      //dailyPlan[i]->display();}
     
@@ -66,8 +69,27 @@ int Itinerary::getTripLength(){// all days(year * 365) + day of month + month + 
     return (n2 - n1);
 }
 
-void Itinerary::displayDayPlan(int i){
+Day& Itinerary:: operator[](int i) {
+        if((i-1)< 0) {
+            std::cerr << "warning not a vaild index" << std::endl; 
+            dailyPlan[0]->display();
+    }
+    
+        else if (i > triplength) {
+            std::cerr << "warning not a vaild index" << std::endl; 
+        }
+         cout<< "Day "<< i << " schedule"<< endl;
+        dailyPlan[i]->display();
+    }
+
+
+void Itinerary::displayDayPlan(int i){// this is for testing only
             cout<< "Day "<< i+1 << " schedule"<< endl;
             dailyPlan[i]->display();
 
 }
+/*void Itinerary::getDay(int i ){
+     cout<< "Day "<< i+1 << " schedule"<< endl;
+            [i];
+}*
+
