@@ -48,13 +48,13 @@
             f.open(username +".txt");
             f << username << endl;
             f << password << endl;
-            f << email << endl;
+            f << "Email: " << email << endl;
             f << "Followers: " << followed << endl;
             f << "Following: " << follow << endl;
             f.close();
             login_test();
         }
-        
+
         else if (choice == 2){//login
             bool status = IsloggedIn();
             if (!status){
@@ -63,6 +63,7 @@
             }
             else{
                 cout << "Successful login" << endl;
+                first_page();
                 return 1;
             }
         }
@@ -71,7 +72,74 @@
             return 0;
         }
     }
+    void User_info::first_page(){
+        cout << "***************Welcome to Adventure Time" << username << "!***************" << endl;
+        cout << "Home Page" << endl;
+        cout << "Select Option: " << endl;
+        cout << "1. Social Page" << endl;
+        cout << "2. Add Trip" << endl;
+        cout << "3. User_page" << endl;
+        cout << "4. Logout" << endl;
+        cout << ">> ";
+        cin >> choice;
+        if (choice == 1){
+            cout << "move to socials"; //set up connection with a shared server (lab2, lab6, lab10)
 
+        }
+        else if (choice ==2){
+            cout << "move to Bennet's page";
+        }
+        else if (choice == 3){
+            cout << "move to my page";
+        }
+        else if (choice == 4){
+            login_test();
+        }
+    }   
+
+    Chat::Messages(){
+        num_messages = 0;
+        size = DEFAULT_SIZE;
+        elt = new std::string*[size];
+        for (int i = 0; i < size; i++){
+            elt[i] = 0;
+        }
+    }
+    Chat :: Messages(std::istream &is){
+        int n;
+        is >> n;
+        num_messages = n;
+        size = DEFAULT_SIZE;
+        elt = new std::string*[num_messages];
+        for (int i = 0; i < num_messages; i++){
+            std::string *s = new std::string;
+            std::string mes;
+            is >> mes;
+            *s = mes;
+            elt[i] = s;
+        }
+    }
+
+    void Chat:: append_message(const string &msg){
+        std::string *message = new std::string(msg);
+        elt[num_messages] =  message;
+        num_messages++; 
+    }
+
+    void Chat:: display() const{
+        for (int i = 0; i < num_messages;i++){
+            cerr << i <<": " << *elt[i] << endl;
+        }
+    }
+
+    void Chat:: print_to_file(const char *filename) const{
+        std::ofstream f(filename);
+        f << num_messages <<endl;
+        for (int i = 0; i < num_messages; i++){
+            f << *elt[i] << endl;
+        }
+        f.close();
+    }
 
 
 
