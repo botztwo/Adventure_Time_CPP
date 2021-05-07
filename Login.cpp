@@ -1,4 +1,5 @@
 #include "Login.h"
+#include"Itinerary.h"
 
     User_info::User_info(){
         followed = 0;
@@ -97,7 +98,7 @@
         }
     }   
 
-    Chat::Messages(){
+    Chat::Chat(){
         num_messages = 0;
         size = DEFAULT_SIZE;
         elt = new std::string*[size];
@@ -105,7 +106,7 @@
             elt[i] = 0;
         }
     }
-    Chat :: Messages(std::istream &is){
+    Chat :: Chat(std::istream &is){
         int n;
         is >> n;
         num_messages = n;

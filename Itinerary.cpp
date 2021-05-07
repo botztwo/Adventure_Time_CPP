@@ -91,5 +91,5 @@ void Itinerary::displayDayPlan(int i){// this is for testing only
 /*void Itinerary::getDay(int i ){
      cout<< "Day "<< i+1 << " schedule"<< endl;
             [i];
-}*
+}*/
 

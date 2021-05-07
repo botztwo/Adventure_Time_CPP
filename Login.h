@@ -4,7 +4,7 @@
 #include <cstring>
 #include <fstream>
 #include"../react.h"
-#include"Messages.h"
+#include"Itinerary.h"
 using namespace std;
 
 class User_info{
@@ -37,15 +37,15 @@ class Chat :public Social{
     std::string **elt;
     static const short DEFAULT_SIZE = 100;
     public:
-        Messages();
-        Messages(std::istream &is);
+        Chat();
+        Chat(std::istream &is);
         void append_message(const string &msg);
         void display() const;
         void print_to_file(const char *filename) const;
         //void put_in_global_mem(int text_offset) const;
         //void clear();
         //void get_from_global_mem(int text_offset);
-        ~Messages();
+        //~Messages();
 }; 
 
 #endif  // _Login_H_
