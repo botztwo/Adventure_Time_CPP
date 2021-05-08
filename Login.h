@@ -6,8 +6,8 @@
 #include"../react.h"
 #include"Itinerary.h"
 #include <sstream>
-#include "Account.h"
-#include "Comm.h"
+//#include "Account.h"
+//#include "Comm.h"
 #include "react.h"
 using namespace std;
 
