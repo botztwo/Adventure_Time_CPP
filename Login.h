@@ -15,11 +15,13 @@ class User_info{
     private:
         string password;
         string email;
+        int count;
     protected:
-        string username;
+        char* username;
         string un;
         string pw;
         int choice;
+        int gm_size;
     public:
         int followed;
         int follow;
@@ -28,6 +30,8 @@ class User_info{
         bool IsloggedIn(); 
         int login_test();
         void first_page();
+        void put_in_global_mem(int offset);
+        void get_from_global_mem(int offset);
 
 };
 
@@ -36,18 +40,17 @@ class Social: public User_info{
     //follow/follower method 
     
 };
-class Chat :public Social{
+class Server :public Social{
     short num_messages, size;
     std::string **elt;
     static const short DEFAULT_SIZE = 100;
+   
     public:
-        Chat();
-        Chat(std::istream &is);
+        Server();
+        Server(std::istream &is);
         void append_message(const string &msg);
         void display() const;
         void print_to_file(const char *filename) const;
-        void put_in_global_mem(int offset);
-        void get_from_global_mem(int offset);
         //~Messages();
 }; 
 

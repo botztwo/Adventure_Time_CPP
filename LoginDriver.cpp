@@ -3,8 +3,10 @@
 int main(){
     User_info jason;
     jason.login_test();
+    jason.put_in_global_mem(0);
+    jason.get_from_global_mem(0);
     std::ifstream f("a.txt");
-    Chat u1(f);
+    Server u1(f);
     _init();
 
   if (_just_starting()) {

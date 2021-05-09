@@ -2,6 +2,7 @@
 #include"Itinerary.h"
 
     User_info::User_info(){
+        username = new char[]
         followed = 0;
         follow = 0;
             
@@ -101,7 +102,7 @@
         }
     }   
 
-    Chat::Chat(){
+    Server::Server(){
         num_messages = 0;
         size = DEFAULT_SIZE;
         elt = new std::string*[size];
@@ -109,7 +110,7 @@
             elt[i] = 0;
         }
     }
-    Chat :: Chat(std::istream &is){
+    Server :: Server(std::istream &is){
         int n;
         is >> n;
         num_messages = n;
@@ -124,19 +125,19 @@
         }
     }
 
-    void Chat:: append_message(const string &msg){
+    void Server::append_message(const string &msg){
         std::string *message = new std::string(msg);
         elt[num_messages] =  message;
         num_messages++; 
     }
 
-    void Chat:: display() const{
+    void Server::display() const{
         for (int i = 0; i < num_messages;i++){
             cerr << i <<": " << *elt[i] << endl;
         }
     }
 
-    void Chat:: print_to_file(const char *filename) const{
+    void Server:: print_to_file(const char *filename) const{
         std::ofstream f(filename);
         f << num_messages <<endl;
         for (int i = 0; i < num_messages; i++){
@@ -144,6 +145,34 @@
         }
         f.close();
     }
+
+void User_info::put_in_global_mem(int offset) {
+  //_put_double(offset+4, bal);
+  //_put_double(offset+12, init_bal);
+  _put_raw(offset+4, username);
+  _put_raw(offset+4+strlen(username)+1,password);
+  gm_size = 4 + strlen(username)+1 + strlen(password)+1;
+  _put_int(offset, gm_size);
+  cerr << gm_size << endl;
+}
+
+void User_info::get_from_global_mem(int offset) {
+  gm_size = _get_int(offset);
+  username = _get_char(offset+4);
+  password = _get_char(offset+4+strlen(username)+1);
+  cerr << username <<":" << password << endl;
+  //username = new char[gm_size-strlen(username)-1-]
+  //owner = new char[gm_size - 20];
+  //for (int i = 0;  i < gm_size-20;  i++)
+    //owner[i] = _get_char(offset+20 + i);
+  //std::cerr << strlen(owner) << std::endl;  // debugging
+}
+
+/*string Server::get_display_string(void) {
+  stringstream ss;
+  ss << bal << " (" << init_bal << ")[" << owner << "]";
+  return string(ss.str());
+}*/
 
 
 
