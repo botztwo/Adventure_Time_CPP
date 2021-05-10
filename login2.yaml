@@ -1,0 +1,39 @@
+- Text:
+    style:
+      color: purple
+      fontSize: 40
+    index: 49
+- TextInput:
+    style:
+      fontSize: 30
+      color: black
+      borderColor: grey
+      borderWidth: 1
+    index: globmem
+    len: 10
+- Text:
+    style:
+      color: purple
+      fontSize: 40
+    index: 59
+- TextInput:
+    style:
+      fontSize: 30
+      color: black
+      borderColor: grey
+      borderWidth: 1
+    index: 0
+    len: 10
+- Text:
+    style:
+      color: purple
+      fontSize: 40
+    index: 69
+- TextInput:
+    style:
+      fontSize: 30
+      color: black
+      borderColor: grey
+      borderWidth: 1
+    index: 0
+    len: 10
