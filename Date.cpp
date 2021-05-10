@@ -49,7 +49,7 @@ int Date:: getYear(){
 
 
 
-string Date::getMonthStr(){
+string Date::getMonthStr() {
     string monthStr;
     stringstream ss;
     ss<< getMonth();
@@ -58,7 +58,7 @@ string Date::getMonthStr(){
 
 }
 
-string Date::getDayStr(){
+string Date::getDayStr() {
     string dayStr;
     stringstream ss;
     ss<< getDay();
@@ -84,15 +84,19 @@ string Date::getYearStr(){
     cout<<"string rep test     " << str << endl;
 }*/
 
-void Date:: print(){
+void Date:: print() {
     std::cerr << "Date " << std::endl;
     std::cerr<<setfill('0') <<setw(2) <<getMonth()<<"/"
                             << setw(2)<<getDay()<< "/" 
                             << setw(4) << getYear() << endl;}
-void Date::printStr(){
-    std::cerr << "Date " << std::endl;
-
-    std::cerr<<setfill('0') << setw(2) << getMonthStr() + "/"<< setw(2)<<getDayStr() + "/" << setw(4) << getYearStr() << endl;
+string Date::makeStrDate() {
+   // std::cerr << "Date " << std::endl;
+    string date;
+    stringstream ss;
+    ss << setfill('0') << setw(2) << getMonthStr() + "/"<< setw(2)<<getDayStr() + "/" << setw(4) << getYearStr();
+    ss>>date;
+    return date;
+    //use string stream as wel
     }
 
 

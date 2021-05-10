@@ -25,7 +25,7 @@ class Date{
     string getMonthStr();
     string getDayStr();
     string getYearStr();
-    void printStr();
+    string makeStrDate();
 };
 
 
