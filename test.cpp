@@ -5,12 +5,13 @@ int main() {
 
   if (_received_event()) {
     if (_event_id_is("Register")) {
-      std::cerr << "Go!\n";
+      std::cerr << "Register!\n";
     } 
     else if (_event_id_is("Login")) {
-      std::cerr << "Stop.\n";
+      std::cerr << "Login.\n";
     }
     else if (_event_id_is("Exit")){
+      std::cerr << "Exit" << std::endl;
 
     }
   }
