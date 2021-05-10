@@ -1,3 +1,40 @@
-- message_id: 0
+- message_id: 7
+- Button:
+    id: Register
+    style:
+      marginTop: 50
+      width: 100
+      height: 50
+      borderRadius: 25
+      backgroundColor: green
+    on_touch:
+      backgroundColor: 'rgb(100, 255, 0)'
+- Button:
+    id: Login
+    style:
+      width: 100
+      height: 50
+      borderRadius: 25
+      backgroundColor: red
+    on_touch:
+      backgroundColor: 'rgb(255, 100, 0)'
+- Button:
+    id: Exit
+    style:
+      width: 100
+      height: 50
+      borderRadius: 25
+      backgroundColor: red
+    on_touch:
+      backgroundColor: 'rgb(255, 100, 0)'
+- event_info:
+    type: touch_up
+    start_x: 47
+    start_y: 125
+    point_x: 47
+    point_y: 125
+    nodes:
+      - Button_2
+    id: Login
 - first_name: 'undefined'
 ---
