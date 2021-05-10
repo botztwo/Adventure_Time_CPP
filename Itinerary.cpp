@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip> 
 #include <string> 
+#include"../react.h"
 using namespace std;
 
 
@@ -83,11 +84,32 @@ Day& Itinerary:: operator[](int i) {
     }
 
 
+
 void Itinerary::displayDayPlan(int i){// this is for testing only
             cout<< "Day "<< i+1 << " schedule"<< endl;
             dailyPlan[i]->display();
 
 }
+
+
+
+void Itinerary::put_in_global_mem(int offset) {
+
+    _put_int(offset+4, triplength);
+
+
+  /*
+  put start date 
+  put end date 
+  and then put the daily plan. 
+  put location
+  */
+}
+ 
+
+
+
+
 /*void Itinerary::getDay(int i ){
      cout<< "Day "<< i+1 << " schedule"<< endl;
             [i];

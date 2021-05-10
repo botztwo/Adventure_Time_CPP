@@ -26,3 +26,4 @@ using namespace std;
            cout<<i+1<< ")" << activities[i] << endl;
         }
     }
+    
