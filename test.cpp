@@ -2,20 +2,34 @@
   
 int main() {
   _init();
+  _put_raw(0, "Select Option Below...\n");
+  _put_int(21,0);
+  _put_raw(22, "Register");
+  _put_int(31,0);
+  _put_raw(32, "Login");
+  _put_int(41,0);
+  _put_raw(42, "Exit");
+  _put_int(48,0);
+  _put_raw(49, "Username:");
+  _put_int(58,0);
+  _put_raw(59, "Password:");
+  _put_int(68,0);
+  _put_raw(69, "Email:");
+  _put_int(75,0);
+  
 
   if (_received_event()) {
     if (_event_id_is("Register")) {
-      std::cerr << "Register!\n";
+      //move to Register Screen 
     } 
     else if (_event_id_is("Login")) {
-      std::cerr << "Login.\n";
+      add_yaml("login2.yaml");
     }
     else if (_event_id_is("Exit")){
-      std::cerr << "Exit" << std::endl;
 
     }
   }
-  add_yaml("test.yaml");
+  add_yaml("login.yaml");
 
   _quit();
 }

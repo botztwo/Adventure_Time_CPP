@@ -7,13 +7,35 @@ int main(){
     jason.get_from_global_mem(0);
     std::ifstream f("a.txt");
     Server u1(f);
-    _init();
+  _init();
+  _put_raw(0, "Select Option Below...\n");
+  _put_int(21,0);
+  _put_raw(22, "Register");
+  _put_int(31,0);
+  _put_raw(32, "Login");
+  _put_int(41,0);
+  _put_raw(42, "Exit");
+  _put_int(48,0);
+  _put_raw(49, "Username:");
+  _put_int(58,0);
+  _put_raw(59, "Password:");
+  _put_int(68,0);
+  _put_raw(69, "Email:");
+  _put_int(75,0);
+  int globnum = 76;
 
-  if (_just_starting()) {
-    _put_raw(1, "10%");
+  if (_received_event()) {
+    if (_event_id_is("Register")) {
+      //move to Register Screen 
+    } 
+    else if (_event_id_is("Login")) {
+      add_yaml("login2.yaml");
+    }
+    else if (_event_id_is("Exit")){
+
+    }
   }
-  string s = _global_mem + 1;  // user input
-  add_yaml("test.yaml", {{"x", s}});
+  add_yaml("login.yaml");
 
   _quit();
 }

@@ -39,4 +39,5 @@ ItineraryDriver.o:  ItineraryDriver.cpp Itinerary.h Date.h Day.h ../react.o
 	g++ -g -Wall -c ItineraryDriver.cpp
 
 clean:  
-	rm *.o DateDriver DayDriver ItineraryDriver LoginDriver Botz2.txt a.out Login.cpp LoginDriver
+	rm *.o Login.o LoginDriver a.out cached_input out.yaml
+	
