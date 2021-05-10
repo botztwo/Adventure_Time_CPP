@@ -22,6 +22,8 @@ class User_info{
         string pw;
         int choice;
         int gm_size;
+        const char *tempu;
+        const char *tempp;
     public:
         int followed;
         int follow;

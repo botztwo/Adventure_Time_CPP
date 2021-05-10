@@ -1,13 +1,20 @@
 #include"../react.h"
-
+  
 int main() {
   _init();
 
-  if (_just_starting()) {
-    _put_raw(1, "10%");
+  if (_received_event()) {
+    if (_event_id_is("Register")) {
+      std::cerr << "Go!\n";
+    } 
+    else if (_event_id_is("Login")) {
+      std::cerr << "Stop.\n";
+    }
+    else if (_event_id_is("Exit")){
+
+    }
   }
-  string s = _global_mem + 1;  // user input
-  add_yaml("test.yaml", {{"x", s}});
+  add_yaml("test.yaml");
 
   _quit();
 }
