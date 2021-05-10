@@ -10,7 +10,7 @@ int main(){
   Date d1(4,29,2012);
   /*Trip d2(3,7,2015);
   Trip d3(12,4,2015);*/
-  d1.printStr();
+  d1.makeStrDate();
   cout<< endl;
   d1.print();
   cout<< endl;

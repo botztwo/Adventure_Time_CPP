@@ -16,8 +16,10 @@ Itinerary::Itinerary(int sm,int sd,int sy, int em,int ed,int ey):startDate(sm,sd
     for(int i=0;i<triplength; ++i){
         dailyPlan[i]=0;
     }
-    cout << "Where are you headed?"<< endl;
+    cout << "Where are you headed?"<< endl; // getline for multi work place cin for single word
+    //cin.ignore();
     getline(cin, destination);
+    //cin >> destination;
 }
 
 
@@ -33,6 +35,7 @@ void Itinerary::planNewDay(){ // this method in incomplete used for testing purp
         while (running){
             std::string activity;
             cout << "Enter Activity number ("<< actCount<< ") for day " << plannedDays << ":";
+            //getline(cin, activity);
             cin >> activity;
             dailyPlan[plannedDays]->addActivity(activity);// stopped here this is test code 
             int yes=0;
@@ -83,8 +86,11 @@ Day& Itinerary:: operator[](int i) {
         else if (i > triplength) {
             std::cerr << "warning not a vaild index" << std::endl; 
         }
-         cout<< "Day "<< i << " schedule"<< endl;
-        dailyPlan[i]->display();
+         //cout<< "Day "<< i << " schedule"<< endl;
+         //dailyPlan[i]->display();
+         return *(dailyPlan[i]);
+
+       
     }
 
 
@@ -99,9 +105,8 @@ void Itinerary::displayDayPlan(int i){// this is for testing only
 
 void Itinerary::put_in_global_mem(int offset) { //skipping date and end date 
     //cout<< destination<<endl;
-    tempDest =  destination.c_str();
-    _put_raw(offset+4, tempDest);
-    gm_size = 4 + strlen(tempDest)+1 ;
+    _put_raw(offset+4, destination.c_str());
+    gm_size = 4 + destination.length()+1;
     _put_int(offset, gm_size);
    /* cerr << tempDest << endl;
      cerr << gm_size << endl;*/
@@ -109,15 +114,17 @@ void Itinerary::put_in_global_mem(int offset) { //skipping date and end date
 }
 
 void Itinerary::get_from_global_mem(int offset) {
-    tempDest =  destination.c_str();
+    //tempDest =  destination.c_str();
     gm_size = _get_int(offset);
-    destination = new char[gm_size-strlen(tempDest)-4];
-  for (int i = 0; i < gm_size-strlen(tempDest)-4; i++){//get from global_mem
+    destination = _global_mem+offset+4;
+  /*  int len = destination.length();
+    destination = new char[gm_size-len-4];
+  for (int i = 0; i < gm_size-len-4; i++){//get from global_mem
       destination[i] = _get_char(offset+4 + i);
-  }
-   for (int i =0; i < strlen(tempDest)+1;i++){//display username for loop
-      cerr << destination[i];
-  }
+  }*/
+   //for (int i =0; i <len+1;i++){//display username for loop
+      cerr << destination;
+  
 }
  
 
