@@ -17,6 +17,8 @@ class Itinerary{
     Day**dailyPlan;
     int plannedDays;
     string destination;
+    int gm_size;
+    const char *tempDest;
 
 
     public:
@@ -27,6 +29,7 @@ class Itinerary{
     Day& operator[](int i);
     void getDay(int i);
     void put_in_global_mem(int offset);
+    void get_from_global_mem(int offset);
 };
 #endif
 
