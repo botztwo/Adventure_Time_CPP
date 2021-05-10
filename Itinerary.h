@@ -4,6 +4,9 @@
 #include "Day.h"
 #include <iostream>
 #include <iomanip> 
+#include <cstring>
+#include"../react.h"
+#include <sstream>
 using namespace std;
 
 
@@ -13,6 +16,7 @@ class Itinerary{
     int triplength;
     Day**dailyPlan;
     int plannedDays;
+    string destination;
 
 
     public:
@@ -22,7 +26,7 @@ class Itinerary{
     void displayDayPlan(int i);
     Day& operator[](int i);
     void getDay(int i);
-
+    void put_in_global_mem(int offset);
 };
 #endif
 

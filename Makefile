@@ -29,11 +29,14 @@ Day.o:  Day.cpp Day.h
 DayDriver.o:  DayDriver.cpp Day.h
 	g++ -g -Wall -c DayDriver.cpp
 
-ItineraryDriver:  Itinerary.o ItineraryDriver.o Date.o Day.o
-	g++ -g -Wall -o ItineraryDriver Itinerary.o ItineraryDriver.o Date.o Day.o
+ItineraryDriver:  Itinerary.o ItineraryDriver.o Date.o Day.o ../react.o
+	g++ -g -Wall -o ItineraryDriver Itinerary.o ItineraryDriver.o Date.o Day.o ../react.o -o ItineraryDriver -lcurl
 
 Itinerary.o:  Itinerary.cpp Itinerary.h Date.h Day.h
 	g++ -g -Wall -c Itinerary.cpp
 
-ItineraryDriver.o:  ItineraryDriver.cpp Itinerary.h Date.h Day.h
+ItineraryDriver.o:  ItineraryDriver.cpp Itinerary.h Date.h Day.h ../react.o
 	g++ -g -Wall -c ItineraryDriver.cpp
+
+clean:  
+	rm *.o DateDriver DayDriver ItineraryDriver LoginDriver Botz2.txt a.out Login.cpp LoginDriver

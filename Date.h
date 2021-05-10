@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstring>
 #include <iomanip> 
+#include <cstring>
 using namespace std;
 
 
@@ -21,6 +22,10 @@ class Date{
     int getYear();
     Date(int d=0, int m =0, int y=0);
     void print();
+    string getMonthStr();
+    string getDayStr();
+    string getYearStr();
+    void printStr();
 };
 
 

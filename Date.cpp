@@ -47,8 +47,53 @@ int Date:: getYear(){
     return year;
 }
 
+
+
+string Date::getMonthStr(){
+    string monthStr;
+    stringstream ss;
+    ss<< getMonth();
+    ss >> monthStr;
+    return monthStr;
+
+}
+
+string Date::getDayStr(){
+    string dayStr;
+    stringstream ss;
+    ss<< getDay();
+    ss >> dayStr;
+    return dayStr;
+
+}
+
+string Date::getYearStr(){
+    string yearStr;
+    stringstream ss;
+    ss<< getYear();
+    ss >> yearStr;
+    return yearStr;
+
+}
+
+/*void Date::Datetostring(){
+    string str;
+    stringstream ss;
+    ss<< getMonth();
+    ss >>str;
+    cout<<"string rep test     " << str << endl;
+}*/
+
 void Date:: print(){
     std::cerr << "Date " << std::endl;
     std::cerr<<setfill('0') <<setw(2) <<getMonth()<<"/"
                             << setw(2)<<getDay()<< "/" 
                             << setw(4) << getYear() << endl;}
+void Date::printStr(){
+    std::cerr << "Date " << std::endl;
+
+    std::cerr<<setfill('0') << setw(2) << getMonthStr() + "/"<< setw(2)<<getDayStr() + "/" << setw(4) << getYearStr() << endl;
+    }
+
+
+
