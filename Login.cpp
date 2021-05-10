@@ -2,7 +2,6 @@
 #include"Itinerary.h"
 
     User_info::User_info(){
-        username = new char[]
         followed = 0;
         follow = 0;
             
@@ -147,21 +146,38 @@
     }
 
 void User_info::put_in_global_mem(int offset) {
+    const char *tempu = username.c_str();
+    const char *tempp = password.c_str();
   //_put_double(offset+4, bal);
   //_put_double(offset+12, init_bal);
-  _put_raw(offset+4, username);
-  _put_raw(offset+4+strlen(username)+1,password);
-  gm_size = 4 + strlen(username)+1 + strlen(password)+1;
+  _put_raw(offset+4, tempu);
+  _put_raw(offset+4+strlen(tempu)+1,tempp);
+  gm_size = 4 + strlen(tempu)+1 + strlen(tempp)+1;
   _put_int(offset, gm_size);
+  cerr << tempu << endl;
   cerr << gm_size << endl;
 }
 
 void User_info::get_from_global_mem(int offset) {
+    const char *tempu = username.c_str();
+    const char *tempp = password.c_str();
   gm_size = _get_int(offset);
-  username = _get_char(offset+4);
-  password = _get_char(offset+4+strlen(username)+1);
-  cerr << username <<":" << password << endl;
-  //username = new char[gm_size-strlen(username)-1-]
+  username = new char[gm_size-strlen(tempp)-4];
+  for (int i = 0; i < gm_size-strlen(tempp)-4; i++){
+      username[i] = _get_char(offset+4 + i);
+  }
+  password = new char[gm_size-strlen(tempu)-4];
+  for (int i = 0; i <gm_size-strlen(tempu)-4;i++){
+      password[i] = _get_char(offset+4+strlen(tempu)+1+i);
+  }
+  for (int i =0; i < strlen(tempu)+1;i++){
+      cerr << username[i];
+  }
+  cerr << ": ";
+  for (int j = 0; j < strlen(tempp);j++){
+      cerr << password[j];
+  }
+  cerr << endl;
   //owner = new char[gm_size - 20];
   //for (int i = 0;  i < gm_size-20;  i++)
     //owner[i] = _get_char(offset+20 + i);

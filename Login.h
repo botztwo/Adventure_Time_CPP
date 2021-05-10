@@ -17,7 +17,7 @@ class User_info{
         string email;
         int count;
     protected:
-        char* username;
+        string username;
         string un;
         string pw;
         int choice;
