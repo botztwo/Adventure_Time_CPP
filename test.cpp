@@ -20,13 +20,13 @@ int main() {
 
   if (_received_event()) {
     if (_event_id_is("Register")) {
-      //move to Register Screen 
+      add_yaml("login2.yaml"); 
     } 
     else if (_event_id_is("Login")) {
       add_yaml("login2.yaml");
     }
     else if (_event_id_is("Exit")){
-
+      //Go out of the page
     }
   }
   add_yaml("login.yaml");

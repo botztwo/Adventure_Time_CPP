@@ -4,12 +4,13 @@
       fontSize: 40
     index: 49
 - TextInput:
+    id: Username
     style:
       fontSize: 30
       color: black
       borderColor: grey
       borderWidth: 1
-    index: globmem
+    index: 76
     len: 10
 - Text:
     style:
@@ -17,12 +18,13 @@
       fontSize: 40
     index: 59
 - TextInput:
+    id: Password
     style:
       fontSize: 30
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 0
+    index: 86
     len: 10
 - Text:
     style:
@@ -30,10 +32,11 @@
       fontSize: 40
     index: 69
 - TextInput:
+    id: Email
     style:
       fontSize: 30
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 0
+    index: 96
     len: 10
