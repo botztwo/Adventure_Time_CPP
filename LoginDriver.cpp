@@ -2,13 +2,13 @@
 #include "Login.h"
 #include"Itinerary.h"
 int main(){
+    _init();
     User_info jason;
     jason.login_test();
     jason.put_in_global_mem(0);
     jason.get_from_global_mem(0);
     std::ifstream f("a.txt");
     Server u1(f);
-  _init();
   _put_raw(0, "Select Option Below...\n");
   _put_int(21,0);
   _put_raw(22, "Register");

@@ -146,37 +146,29 @@
     }
 
 void User_info::put_in_global_mem(int offset) {
-    tempu = username.c_str();
-    tempp = password.c_str();
+  int len_user = username.length()+1;
+  int len_pass = password.length()+1;
   //_put_double(offset+4, bal);
   //_put_double(offset+12, init_bal);
-  _put_raw(offset+4, tempu);
-  _put_raw(offset+4+strlen(tempu)+1,tempp);
-  gm_size = 4 + strlen(tempu)+1 + strlen(tempp)+1;
+  _put_raw(offset+4, username.c_str());
+  _put_raw(offset+4+len_user,password.c_str());
+  gm_size = 4 + len_user + len_pass;
   _put_int(offset, gm_size);
-  cerr << tempu << endl;
+  //testing
+  cerr << username << endl;
   cerr << gm_size << endl;
 }
 
 void User_info::get_from_global_mem(int offset) {
-    tempu = username.c_str();
-    tempp = password.c_str();
   gm_size = _get_int(offset);
-  username = new char[gm_size-strlen(tempp)-4];
-  for (int i = 0; i < gm_size-strlen(tempp)-4; i++){//get from global_mem
-      username[i] = _get_char(offset+4 + i);
-  }
-  password = new char[gm_size-strlen(tempu)-4];
-  for (int i = 0; i <gm_size-strlen(tempu)-4;i++){
-      password[i] = _get_char(offset+4+strlen(tempu)+1+i);
-  }
-  for (int i =0; i < strlen(tempu)+1;i++){//display username for loop
-      cerr << username[i];
-  }
+  username = _global_mem + offset + 4;
+  int len_user = username.length()+1;
+  password = _global_mem +offset + 4 + len_user;
+  int len_pass = password.length()+1;
+  cerr << "Testing for global mem input";
+  cerr << username;
   cerr << ": ";
-  for (int j = 0; j < strlen(tempp);j++){//display password for loop
-      cerr << password[j];
-  }
+  cerr << password;
   cerr << endl;
   //owner = new char[gm_size - 20];
   //for (int i = 0;  i < gm_size-20;  i++)
