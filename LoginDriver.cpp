@@ -2,32 +2,26 @@
 #include "Login.h"
 #include"Itinerary.h"
 int main(){
-    _init();
     User_info jason;
-    jason.login_test();
-    jason.put_in_global_mem(0);
-    jason.get_from_global_mem(0);
-    std::ifstream f("a.txt");
-    Server u1(f);
-  _put_raw(0, "Select Option Below...\n");
-  _put_int(21,0);
-  _put_raw(22, "Register");
-  _put_int(31,0);
-  _put_raw(32, "Login");
-  _put_int(41,0);
-  _put_raw(42, "Exit");
-  _put_int(48,0);
-  _put_raw(49, "Username:");
-  _put_int(58,0);
-  _put_raw(59, "Password:");
-  _put_int(68,0);
-  _put_raw(69, "Email:");
-  _put_int(75,0);
-  int globnum = 76;
+    //std::ifstream f("a.txt");
+    //Server u1(f);
+  _init();
+  _put_raw(0, "Welcome to Adventure Time!");
+  _put_raw(27, "Register");
+  _put_raw(37, "Login");
+  _put_raw(47, "Exit");
+  _put_raw(52, "Username:");
+  _put_raw(62, "Password:");
+  _put_raw(72, "Email:");
+  int gcount = 78;
+  //jason.login_test();
+  //jason.put_in_global_mem(78);
+  //jason.get_from_global_mem(78);
+  //cerr << _global_mem << endl;
 
   if (_received_event()) {
     if (_event_id_is("Register")) {
-      add_yaml("login2.yaml"); 
+      //jason.put_in_global_mem(78);
     } 
     else if (_event_id_is("Login")) {
       add_yaml("login2.yaml");

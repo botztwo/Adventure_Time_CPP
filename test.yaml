@@ -1,58 +1,76 @@
-- Text:
-    style:
-      color: purple
-      fontSize: 40
-    index: 0
-
 - Button:
-    id: Register
+    id: Socials
     style:
-      marginTop: 100
+      position: absolute 
+      left: 30%
+      top:  90%
       width: 100
       height: 50
-      borderRadius: 25
-      backgroundColor: green
+      backgroundColor: orange
     on_touch:
-      backgroundColor: rgb(100, 255, 0)
+      backgroundColor: rgb(100, 0, 255)
+    children:
+      - Text:
+          style:
+            position: center
+            color: black
+            fontSize: 20
+            height: 50
+          index: 27
 - Button:
-    id: Login
+    id: Add
     style:
+      position: absolute 
+      left: 40%
+      top:  90%
       width: 100
       height: 50
-      borderRadius: 25
-      backgroundColor: blue
+      backgroundColor: orange
     on_touch:
       backgroundColor: rgb(0, 100, 255)
+    children:
+      - Text:
+          style:
+            position: center
+            color: black
+            fontSize: 20
+            height: 50
+          index: 37
 - Button:
-    id: Exit
+    id: User
     style:
+      position: absolute 
+      left: 50%
+      top:  90%
       width: 100
       height: 50
-      borderRadius: 25
-      backgroundColor: red
+      backgroundColor: orange
     on_touch:
       backgroundColor: rgb(255, 100, 0)
-- TextInput:
+    children:
+      - Text:
+          style:
+            position: center
+            color: black
+            fontSize: 20
+            height: 50
+          index: 47
+- Button:
+    id: Back
     style:
-      fontSize: 30
-      color: black
-      borderColor: grey
-      borderWidth: 1
-    index: 22
-    len: 10
-- TextInput:
-    style:
-      fontSize: 30
-      color: black
-      borderColor: grey
-      borderWidth: 1
-    index: 0
-    len: 10
-- TextInput:
-    style:
-      fontSize: 30
-      color: black
-      borderColor: grey
-      borderWidth: 1
-    index: 0
-    len: 10
+      position: absolute 
+      left: 60%
+      top:  90%
+      width: 100
+      height: 50
+      backgroundColor: orange
+    on_touch:
+      backgroundColor: rgb(255, 100, 0)
+    children:
+      - Text:
+          style:
+            position: center
+            color: black
+            fontSize: 20
+            height: 50
+          index: 47

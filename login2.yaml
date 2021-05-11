@@ -1,42 +1,63 @@
 - Text:
     style:
-      color: purple
-      fontSize: 40
-    index: 49
-- TextInput:
-    id: Username
-    style:
+      position: absolute
+      left: 30%
+      top: 30%
+      color: orange
       fontSize: 30
+    index: 52
+- TextInput:
+    style:
+      position: absolute
+      left: 42%
+      top: 30%
+      width: 200
+      height: 40
+      fontSize: 20
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 76
+    index: 82
     len: 10
 - Text:
     style:
-      color: purple
-      fontSize: 40
-    index: 59
-- TextInput:
-    id: Password
-    style:
+      position: absolute
+      left: 30%
+      top: 37%
+      color: orange
       fontSize: 30
+    index: 62
+- TextInput:
+    style:
+      position: absolute
+      left: 42%
+      top: 37%
+      width: 200
+      height: 40
+      fontSize: 20
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 86
+    index: 92
     len: 10
 - Text:
     style:
-      color: purple
-      fontSize: 40
-    index: 69
-- TextInput:
-    id: Email
-    style:
+      position: absolute
+      left: 30%
+      top: 44%
+      color: orange
       fontSize: 30
+    index: 72
+- TextInput:
+    style:
+      position: absolute
+      left: 42%
+      top: 44%
+      width: 200
+      height: 40
+      fontSize: 20
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 96
-    len: 10
+    index: 102
+    len: 20
