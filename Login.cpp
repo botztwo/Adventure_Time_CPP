@@ -150,16 +150,17 @@
 
 void User_info::put_in_global_mem(int offset) {
   username = _global_mem + offset + 4; 
-  int len_user = username.length()+1;
   password = _global_mem +offset + 4 + 10;
-  int len_pass = password.length()+1;
+  email = _global_mem +offset + 4 + 20;
   //_put_raw(offset+4, username.c_str());
   //_put_raw(offset+4+len_user,password.c_str());
+  int len_user = username.length()+1;
+  int len_pass = password.length()+1;
   gm_size = 4 + len_user + len_pass;
   _put_int(offset, gm_size);
   //testing
   //cerr << username << endl;
-  //cerr << password << endl;
+  cerr << password << endl;
   //cerr << gm_size << endl;
 }
 
@@ -175,15 +176,47 @@ void User_info::get_from_global_mem(int offset) {
   cerr << password;
   cerr << endl;
 }
-void User_info::get_and_check(int offset){
+bool User_info::check_file(int offset){
+    username = _global_mem + offset + 4; 
+    password = _global_mem +offset + 4 + 10;
+    ifstream read(username +".txt");
+    getline(read,un);
+    getline(read,pw);
+    cerr << un << endl;
+
+    if (un == username && pw ==password){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+void User_info::get_and_register(int offset){
     gm_size = _get_int(offset);
     username = _global_mem + offset + 4;
     int len_user = username.length()+1;
-    password = _global_mem +offset + 4 + len_user;
+    password = _global_mem +offset + 4 + 10;
     int len_pass = password.length()+1;
-
-
+    email = _global_mem +offset + 4 + 20;
+    int len_mail = email.length()+1;
+    write_to_file();
 }
+
+int User_info::check_and_login(int offset){
+    bool status = check_file(offset);
+        if (!status){
+            cerr << "Incorrect Login information!" << endl;
+            return 0;
+        }
+        else{
+            cerr << "Successful login" << endl;
+            //first_page();
+            return 1;
+        }
+}
+
+
 
 /*string Server::get_display_string(void) {
   stringstream ss;
