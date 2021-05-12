@@ -11,21 +11,23 @@ using namespace std;
 
 
 class Itinerary{
+    string destination;
     Date startDate;
     Date endDate;
+    string startDateStr;
+    string endDateStr;
     int triplength;
     Day**dailyPlan;
     int plannedDays;
-    string destination;
     int gm_size;
     const char *tempDest;
+    int actCount;
 
 
     public:
     Itinerary(int sm,int sd,int sy, int em,int ed,int ey); 
     int getTripLength();
     void planNewDay();
-    void displayDayPlan(int i);
     Day& operator[](int i);
     void getDay(int i);
     void put_in_global_mem(int offset);

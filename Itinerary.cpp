@@ -8,53 +8,40 @@
 using namespace std;
 
 
-Itinerary::Itinerary(int sm,int sd,int sy, int em,int ed,int ey):startDate(sm,sd,sy), endDate(em,ed,ey){
+Itinerary::Itinerary(int sm,int sd,int sy, int em,int ed,int ey):startDate(sm,sd,sy), endDate(em,ed,ey),actCount(0){
+    startDateStr = startDate.makeStrDate();
+    endDateStr = endDate.makeStrDate();
+    cout<<startDateStr<<endl;
     triplength = getTripLength( );
     plannedDays = 0;
-    // cout << triplength << endl;
     dailyPlan = new Day*[triplength];
     for(int i=0;i<triplength; ++i){
         dailyPlan[i]=0;
     }
-    cout << "Where are you headed?"<< endl; // getline for multi work place cin for single word
-    //cin.ignore();
+    cout << "Where are you headed?"<< endl; 
     getline(cin, destination);
-    //cin >> destination;
+
 }
-
-
-
-void Itinerary::planNewDay(){ // this method in incomplete used for testing purposes. //Maybe you should just do this for one day(save the day) call function every tiem add new day. 
-    //for(int i=0; i<triplength; ++i){
-        ++plannedDays;//increment here afteryou say neew dayt at 0.
+void Itinerary::planNewDay(){ 
+        ++plannedDays;
         dailyPlan[plannedDays]= new Day;
         bool running=1;
-        int actCount =1;
         cout<<"Planning day "<<plannedDays<< "! " <<endl;
-        //++plannedDays;//increment here afteryou say neew dayt at 0.
         while (running){
             std::string activity;
-            cout << "Enter Activity number ("<< actCount<< ") for day " << plannedDays << ":";
-            //getline(cin, activity);
+            cout << "Enter Activity number ("<< actCount+1<< ") for day " << plannedDays << ":";
             cin >> activity;
-            dailyPlan[plannedDays]->addActivity(activity);// stopped here this is test code 
+            dailyPlan[plannedDays]->addActivity(activity);
             int yes=0;
             cout << "add another activity? Yes(1)/No(0): ";
             cin >> yes;
             if (yes==0){
                 running=0;
             }
-            ++actCount;
-            //+plannedDays;
-    }
-   // displayDayPlan(i);
-    }
-
-
-                     //dailyPlan[i]->display();}
-    
-    
-
+            ++actCount;    
+        }
+  }
+  
 int countLeapYears(int m, int y ){  
      int years = y;
     if (m <= 2){
@@ -63,7 +50,7 @@ int countLeapYears(int m, int y ){
     return years / 4 - years / 100 + years / 400;
 }
 
-int Itinerary::getTripLength(){// all days(year * 365) + day of month + month + leap days added on
+int Itinerary::getTripLength(){
     const int monthDays[12]= {31, 28, 31, 30, 31, 30,31, 31, 30, 31, 30, 31};
     long int n1 = startDate.getYear()* 365 + startDate.getDay();
     for (int i = 0; i < startDate.getMonth() - 1; i++){
@@ -86,53 +73,54 @@ Day& Itinerary:: operator[](int i) {
         else if (i > triplength) {
             std::cerr << "warning not a vaild index" << std::endl; 
         }
-         //cout<< "Day "<< i << " schedule"<< endl;
-         //dailyPlan[i]->display();
          return *(dailyPlan[i]);
-
-       
     }
 
 
 
-void Itinerary::displayDayPlan(int i){// this is for testing only
-            cout<< "Day "<< i+1 << " schedule"<< endl;
-            dailyPlan[i]->display();
-
-}
-
-
-
-void Itinerary::put_in_global_mem(int offset) { //skipping date and end date 
-    //cout<< destination<<endl;
+void Itinerary::put_in_global_mem(int offset) { 
+    int len_dest = destination.length()+1;
+    int len_startDateStr = startDateStr.length()+1;
+    int len_endDateStr = endDateStr.length()+1;
     _put_raw(offset+4, destination.c_str());
-    gm_size = 4 + destination.length()+1;
+    _put_raw(offset+4+ len_dest, startDateStr.c_str());
+    _put_raw(offset+4+ len_dest+ len_startDateStr ,endDateStr.c_str());
+    _put_int(offset+4+ len_dest+ len_startDateStr+len_endDateStr,triplength);
+    _put_int(offset+4+len_dest+ len_startDateStr+len_endDateStr+triplength, actCount);
+    int setOff= 0;
+    for(int i = 0; i< plannedDays; ++i){
+        for(int j=0; j< actCount;++j){
+            setOff+=50;
+            _put_raw(offset+4+ len_dest+ len_startDateStr + len_endDateStr + triplength+ actCount +setOff, (dailyPlan[i+1]->getActivity(j)).c_str());
+        }
+    }
+    gm_size = 4 + len_dest + len_startDateStr + len_endDateStr + triplength + actCount;
     _put_int(offset, gm_size);
-   /* cerr << tempDest << endl;
-     cerr << gm_size << endl;*/
-    
 }
 
 void Itinerary::get_from_global_mem(int offset) {
-    //tempDest =  destination.c_str();
+    cout<< "test"<< endl;
     gm_size = _get_int(offset);
     destination = _global_mem+offset+4;
-  /*  int len = destination.length();
-    destination = new char[gm_size-len-4];
-  for (int i = 0; i < gm_size-len-4; i++){//get from global_mem
-      destination[i] = _get_char(offset+4 + i);
-  }*/
-   //for (int i =0; i <len+1;i++){//display username for loop
-      cerr << destination;
-  
+    int len_dest = destination.length()+1;
+    startDateStr = _global_mem + offset + 4 + len_dest;
+    int len_startDate = startDateStr.length()+1;
+    endDateStr = _global_mem + offset+4+ len_dest+ len_startDate;
+    int len_endDate = endDateStr.length()+1;
+    triplength = _get_int(offset+4+ len_dest+ len_startDate+len_endDate);
+    actCount = _get_int(offset+4+len_dest+ len_startDate+len_endDate+triplength);
+    cout << actCount << endl;
+    string test = _global_mem +offset+4+len_dest+ len_startDate+len_endDate+triplength+ actCount+50;
+    cout << test << endl;
+    string activities[actCount];
+    cout<< "test" <<endl;
+    int setOff = 0;
+    for(int i=0; i<actCount; ++i){
+        setOff+=50;
+        activities[i] = _global_mem +offset+4+len_dest+ len_startDate+len_endDate+triplength+ actCount+setOff;
+    }
+    cout << triplength << endl;
+    cout << actCount << endl;
+    for(int i=0; i<actCount; ++i){
+    cout << activities[i] << endl;}    
 }
- 
-
-
-
-
-/*void Itinerary::getDay(int i ){
-     cout<< "Day "<< i+1 << " schedule"<< endl;
-            [i];
-}*/
-

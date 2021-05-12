@@ -26,4 +26,8 @@ using namespace std;
            cout<<i+1<< ")" << activities[i] << endl;
         }
     }
+
+    string Day::getActivity(int x){
+        return activities[x];
+    }
     

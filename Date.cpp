@@ -93,7 +93,8 @@ string Date::makeStrDate() {
    // std::cerr << "Date " << std::endl;
     string date;
     stringstream ss;
-    ss << setfill('0') << setw(2) << getMonthStr() + "/"<< setw(2)<<getDayStr() + "/" << setw(4) << getYearStr();
+    ss<< setfill('0')  << setw(2) << getMonthStr() + "/"<< setw(2)<<getDayStr() + "/" << setw(4) << getYearStr();
+    //ss<< getMonthStr() + "/" <<getDayStr() + "/"<< getYearStr();
     ss>>date;
     return date;
     //use string stream as wel
