@@ -6,11 +6,13 @@
 - Button:
     id: Register
     style:
+      alignItems: center
+      justifyContent: center 
       position: absolute 
       left: 30%
       top:  55%
       width: 100
-      height: 50
+      height: 30
       backgroundColor: orange
     on_touch:
       backgroundColor: rgb(100, 0, 255)
@@ -25,11 +27,13 @@
 - Button:
     id: Login
     style:
+      alignItems: center
+      justifyContent: center
       position: absolute 
       left: 40%
       top:  55%
       width: 100
-      height: 50
+      height: 30
       backgroundColor: orange
     on_touch:
       backgroundColor: rgb(0, 100, 255)
@@ -44,11 +48,13 @@
 - Button:
     id: Exit
     style:
+      alignItems: center
+      justifyContent: center
       position: absolute 
       left: 50%
       top:  55%
       width: 100
-      height: 50
+      height: 30
       backgroundColor: orange
     on_touch:
       backgroundColor: rgb(255, 100, 0)
@@ -60,3 +66,66 @@
             fontSize: 20
             height: 50
           index: 47
+- Text:
+    style:
+      position: absolute
+      left: 30%
+      top: 30%
+      color: orange
+      fontSize: 30
+    index: 52
+- TextInput:
+    style:
+      position: absolute
+      left: 42%
+      top: 30%
+      width: 200
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+    index: 82
+    len: 10
+- Text:
+    style:
+      position: absolute
+      left: 30%
+      top: 37%
+      color: orange
+      fontSize: 30
+    index: 62
+- TextInput:
+    style:
+      position: absolute
+      left: 42%
+      top: 37%
+      width: 200
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+    index: 92
+    len: 10
+- Text:
+    style:
+      position: absolute
+      left: 30%
+      top: 44%
+      color: orange
+      fontSize: 30
+    index: 72
+- TextInput:
+    style:
+      position: absolute
+      left: 42%
+      top: 44%
+      width: 200
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+    index: 102
+    len: 20

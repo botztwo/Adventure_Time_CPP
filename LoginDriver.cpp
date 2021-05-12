@@ -15,16 +15,13 @@ int main(){
   _put_raw(72, "Email:");
   int gcount = 78;
   //jason.login_test();
-  //jason.put_in_global_mem(78);
   //jason.get_from_global_mem(78);
-  //cerr << _global_mem << endl;
 
   if (_received_event()) {
     if (_event_id_is("Register")) {
-      //jason.put_in_global_mem(78);
+      jason.put_in_global_mem(gcount);
     } 
     else if (_event_id_is("Login")) {
-      add_yaml("login2.yaml");
     }
     else if (_event_id_is("Exit")){
       //Go out of the page
