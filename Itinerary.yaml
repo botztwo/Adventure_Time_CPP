@@ -1,21 +1,21 @@
-- Button:
-    id: go
+- Text:
     style:
-      marginTop: 50
-      width: 100
-      height: 50
-      borderRadius: 25
-      backgroundColor: green
-    on_touch:
-      backgroundColor: rgb(100, 255, 0)
-- Button:
-    id: stop
+      position: absolute
+      left: 30%
+      top: 30%
+      fontSize: 30
+      color: purple
+    index: 5
+- TextInput:
     style:
-      width: 100
-      height: 50
-      borderRadius: 25
-      backgroundColor: red
-    on_touch:
-      backgroundColor: rgb(255, 100, 0)
+      fontSize: 30
+      color: black
+      borderColor: grey
+      borderWidth: 1
+    index: 1
+    len: 10
+
+    
+ 
 
 
