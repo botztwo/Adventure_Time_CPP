@@ -19,9 +19,10 @@ int main(){
 
   if (_received_event()) {
     if (_event_id_is("Register")) {
-      jason.put_in_global_mem(gcount);
+      jason.get_and_register(gcount);
     } 
     else if (_event_id_is("Login")) {
+      jason.check_and_login(gcount);
     }
     else if (_event_id_is("Exit")){
       //Go out of the page

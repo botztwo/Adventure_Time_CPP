@@ -3,7 +3,7 @@
 all: LoginDriver DateDriver DayDriver ItineraryDriver
 
 LoginDriver:	Login.o LoginDriver.o Itinerary.o Date.o Day.o ../react.o
-	g++ -g -Wall -o LoginDriver Login.o LoginDriver.o Itinerary.o Date.o Day.o ../react.o -o LoginDriver -lcurl
+	g++ -g -Wall -o LoginDriver Login.o LoginDriver.o Itinerary.o Date.o Day.o ../react.o -lcurl
 
 Login.o:	Login.cpp Login.h Itinerary.h Date.h Day.h ../react.h
 	g++ -g -Wall -c Login.cpp

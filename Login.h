@@ -30,11 +30,13 @@ class User_info{
         void Test_for_Lab();
         bool IsloggedIn(); 
         int login_test();
-        void write_to_file()
+        void write_to_file();
         void first_page();
         void put_in_global_mem(int offset);
         void get_from_global_mem(int offset);
-        void get_and_check(int offset);
+        bool check_file(int offset);
+        void get_and_register(int offset);
+        int check_and_login(int offset);
 
 };
 
