@@ -45,14 +45,7 @@
             cout << "Input your email: ";
             cin >> email;
 
-            ofstream f;
-            f.open(username +".txt");
-            f << username << endl;
-            f << password << endl;
-            f << "Email: " << email << endl;
-            f << "Followers: " << followed << endl;
-            f << "Following: " << follow << endl;
-            f.close();
+            write_to_file();
             login_test();
         }
 
@@ -72,6 +65,16 @@
             cout << "Bye!" << endl;
             return 0;
         }
+    }
+    void User_info::write_to_file(){
+        ofstream f;
+            f.open(username +".txt");
+            f << username << endl;
+            f << password << endl;
+            f << "Email: " << email << endl;
+            f << "Followers: " << followed << endl;
+            f << "Following: " << follow << endl;
+            f.close();
     }
     void User_info::first_page(){
         cout << "***************Welcome to Adventure Time " << username << "!***************" << endl;
@@ -146,17 +149,18 @@
     }
 
 void User_info::put_in_global_mem(int offset) {
+  username = _global_mem + offset + 4; 
   int len_user = username.length()+1;
+  password = _global_mem +offset + 4 + 10;
   int len_pass = password.length()+1;
-  //_put_double(offset+4, bal);
-  //_put_double(offset+12, init_bal);
-  _put_raw(offset+4, username.c_str());
-  _put_raw(offset+4+len_user,password.c_str());
+  //_put_raw(offset+4, username.c_str());
+  //_put_raw(offset+4+len_user,password.c_str());
   gm_size = 4 + len_user + len_pass;
   _put_int(offset, gm_size);
   //testing
-  cerr << username << endl;
-  cerr << gm_size << endl;
+  //cerr << username << endl;
+  //cerr << password << endl;
+  //cerr << gm_size << endl;
 }
 
 void User_info::get_from_global_mem(int offset) {
@@ -170,10 +174,15 @@ void User_info::get_from_global_mem(int offset) {
   cerr << ": ";
   cerr << password;
   cerr << endl;
-  //owner = new char[gm_size - 20];
-  //for (int i = 0;  i < gm_size-20;  i++)
-    //owner[i] = _get_char(offset+20 + i);
-  //std::cerr << strlen(owner) << std::endl;  // debugging
+}
+void User_info::get_and_check(int offset){
+    gm_size = _get_int(offset);
+    username = _global_mem + offset + 4;
+    int len_user = username.length()+1;
+    password = _global_mem +offset + 4 + len_user;
+    int len_pass = password.length()+1;
+
+
 }
 
 /*string Server::get_display_string(void) {

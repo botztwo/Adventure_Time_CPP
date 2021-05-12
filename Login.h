@@ -10,7 +10,6 @@
 //#include "Comm.h"
 #include "react.h"
 using namespace std;
-
 class User_info{
     private:
         string password;
@@ -31,9 +30,11 @@ class User_info{
         void Test_for_Lab();
         bool IsloggedIn(); 
         int login_test();
+        void write_to_file()
         void first_page();
         void put_in_global_mem(int offset);
         void get_from_global_mem(int offset);
+        void get_and_check(int offset);
 
 };
 
