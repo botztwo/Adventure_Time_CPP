@@ -36,7 +36,7 @@ class User_info{
         void get_from_global_mem(int offset);
         bool check_file(int offset);
         void get_and_register(int offset);
-        int check_and_login(int offset);
+        bool check_and_login(int offset);
 
 };
 

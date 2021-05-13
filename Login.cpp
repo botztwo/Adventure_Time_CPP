@@ -203,7 +203,7 @@ void User_info::get_and_register(int offset){
     write_to_file();
 }
 
-int User_info::check_and_login(int offset){
+bool User_info::check_and_login(int offset){
     bool status = check_file(offset);
         if (!status){
             cerr << "Incorrect Login information!" << endl;
@@ -211,7 +211,6 @@ int User_info::check_and_login(int offset){
         }
         else{
             cerr << "Successful login" << endl;
-            //first_page();
             return 1;
         }
 }
