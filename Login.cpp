@@ -12,9 +12,9 @@
             cerr << "This ran" << endl;
         }
     bool User_info::IsloggedIn(){
-    cout << "Enter username: ";
+    cerr << "Enter username: ";
     cin >> username;
-    cout << "Enter password: ";
+    cerr << "Enter password: ";
     cin >> password;
 
     ifstream read(username +".txt");
@@ -30,19 +30,19 @@
     }
     int User_info::login_test(){
     
-        cout << "1: Register"<<endl;
-        cout << "2: Login"<<endl;
-        cout << "3: Exit" << endl;
-        cout << "Select Register or Login via number(1,2,3): ";
+        cerr << "1: Register"<<endl;
+        cerr << "2: Login"<<endl;
+        cerr << "3: Exit" << endl;
+        cerr << "Select Register or Login via number(1,2,3): ";
         cin >> choice;
 
         if (choice == 1){//register
             
-            cout << "Select a username: ";
+            cerr << "Select a username: ";
             cin >> username;
-            cout << "Select a password: ";
+            cerr << "Select a password: ";
             cin >> password;
-            cout << "Input your email: ";
+            cerr << "Input your email: ";
             cin >> email;
 
             write_to_file();
@@ -52,17 +52,17 @@
         else if (choice == 2){//login
             bool status = IsloggedIn();
             if (!status){
-                cout << "Incorrect Login information!" << endl;
+                cerr << "Incorrect Login information!" << endl;
                 return 0;
             }
             else{
-                cout << "Successful login" << endl;
+                cerr << "Successful login" << endl;
                 first_page();
                 return 1;
             }
         }
         else if (choice == 3){
-            cout << "Bye!" << endl;
+            cerr << "Bye!" << endl;
             return 0;
         }
     }
@@ -77,27 +77,27 @@
             f.close();
     }
     void User_info::first_page(){
-        cout << "***************Welcome to Adventure Time " << username << "!***************" << endl;
-        cout << "Home Page" << endl;
-        cout << "Select Option: " << endl;
-        cout << "1. Social Page" << endl;
-        cout << "2. Add Trip" << endl;
-        cout << "3. User_page" << endl;
-        cout << "4. Logout" << endl;
-        cout << ">> ";
+        cerr << "***************Welcome to Adventure Time " << username << "!***************" << endl;
+        cerr << "Home Page" << endl;
+        cerr << "Select Option: " << endl;
+        cerr << "1. Social Page" << endl;
+        cerr << "2. Add Trip" << endl;
+        cerr << "3. User_page" << endl;
+        cerr << "4. Logout" << endl;
+        cerr << ">> ";
         cin >> choice;
         if (choice == 1){
-            cout << "move to socials"; //set up connection with a shared server (lab2, lab6, lab10)
+            cerr << "move to socials"; //set up connection with a shared server (lab2, lab6, lab10)
 
         }
         else if (choice ==2){
             Itinerary mexico(4,25,2021,4,30,2021);
-            //cout<<mexico.getTripLength()<< endl;
+            //cerr<<mexico.getTripLength()<< endl;
             mexico.planNewDay();
             //mexico[1];
         }
         else if (choice == 3){
-            cout << "move to my page";
+            cerr << "move to my page";
         }
         else if (choice == 4){
             login_test();
