@@ -1,6 +1,6 @@
 - Text:
     style:
-      color: orange
+      color: lightseagreen
       fontSize: 40
     index: 0
 - Button:
@@ -13,7 +13,7 @@
       top:  55%
       width: 100
       height: 30
-      backgroundColor: orange
+      backgroundColor: lightseagreen
     on_touch:
       backgroundColor: rgb(100, 0, 255)
     children:
@@ -34,7 +34,7 @@
       top:  55%
       width: 100
       height: 30
-      backgroundColor: orange
+      backgroundColor: lightseagreen
     on_touch:
       backgroundColor: rgb(0, 100, 255)
     children:
@@ -55,7 +55,7 @@
       top:  55%
       width: 100
       height: 30
-      backgroundColor: orange
+      backgroundColor: lightseagreen
     on_touch:
       backgroundColor: rgb(255, 100, 0)
     children:
@@ -71,7 +71,7 @@
       position: absolute
       left: 30%
       top: 30%
-      color: orange
+      color: lightseagreen
       fontSize: 30
     index: 52
 - TextInput:
@@ -85,14 +85,14 @@
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 82
+    index: 113
     len: 10
 - Text:
     style:
       position: absolute
       left: 30%
       top: 37%
-      color: orange
+      color: lightseagreen
       fontSize: 30
     index: 62
 - TextInput:
@@ -106,14 +106,14 @@
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 92
+    index: 123
     len: 10
 - Text:
     style:
       position: absolute
       left: 30%
       top: 44%
-      color: orange
+      color: lightseagreen
       fontSize: 30
     index: 72
 - TextInput:
@@ -127,5 +127,5 @@
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 102
+    index: 133
     len: 20
