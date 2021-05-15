@@ -1,0 +1,163 @@
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 39%
+      top: 11%
+      fontSize: 40
+      color: lightseagreen
+    index: 0
+- Text:
+    style:
+      position: absolute
+      left: 30%
+      top: 21%
+      fontSize: 40
+      color: lightseagreen
+    index: 21
+- Text:
+    style:
+      position: absolute
+      left: 30%
+      top: 30%
+      fontSize: 40
+      color: lightseagreen
+    index: 32
+- Text:
+    style:
+      position: absolute
+      left: 50%
+      top: 30%
+      fontSize: 40
+      color: lightseagreen
+    index: 45
+- Button:
+    id: Start
+    style:
+      alignItems: center
+      justifyContent: center 
+      position: absolute 
+      left: 45%
+      top:  45%
+      width: 120
+      height: 50
+      borderRadius: 25
+      backgroundColor: lightseagreen
+    on_touch:
+      backgroundColor: pink
+    children:
+      - Text:
+          style:
+            position: center
+            color: black
+            fontSize: 20
+            height: 50
+          index: 57
+- TextInput:
+    style:
+      position: absolute
+      left: 43.5%
+      top: 22%
+      width: 340
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: 75
+    len: 25
+- TextInput:
+    style:
+      position: absolute
+      left: 30%
+      top: 37%
+      width: 30
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: 100
+    len: 3
+- TextInput:
+    style:
+      position: absolute
+      left: 33%
+      top: 37%
+      width: 30
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: 103
+    len: 3
+- TextInput:
+    style:
+      position: absolute
+      left: 36%
+      top: 37%
+      width: 60
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: 106
+    len: 5
+- TextInput:
+    style:
+      position: absolute
+      left: 50%
+      top: 37%
+      width: 30
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: 111
+    len: 3
+- TextInput:
+    style:
+      position: absolute
+      left: 53%
+      top: 37%
+      width: 30
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: 114
+    len: 3
+- TextInput:
+    style:
+      position: absolute
+      left: 56%
+      top: 37%
+      width: 60
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: 117
+    len: 5
+
+
+    
+
+  
+
+    
+ 
+
+

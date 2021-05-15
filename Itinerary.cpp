@@ -8,32 +8,70 @@
 using namespace std;
 
 
+Itinerary::Itinerary(int offset):actCount(0){
+    string startDay;
+    string startMonth;
+    string startYear;
+    string endDay;
+    string endMonth;
+    string endYear;
+    //cerr <<"hey"<< endl;
+    //cerr <<_global_mem[offset]<< endl;
+    destination = _global_mem + offset;
+    startDay = _global_mem + offset + 25;
+    startMonth = _global_mem + offset + 25 +3;
+    startYear = _global_mem + offset + 25 + 3 + 3;
+    endDay = _global_mem + offset + 25 + 3 + 3 + 5;
+    endMonth = _global_mem + offset + 25 + 3 + 3 + 5 + 3;
+    endYear =_global_mem + offset + 25 + 3 + 3 + 5 + 3 + 3;
+    cerr<< getDayInt(startDay) << endl;
+    cerr<< getMonthInt(startMonth) << endl;
+    cerr<< getYearInt(startYear) << endl;
+    cerr<< getDayInt(endDay) << endl;
+    cerr<< getMonthInt(endMonth) << endl;
+    cerr<< getYearInt(endYear) << endl;
+    startDate =Date(getDayInt(startDay) ,getMonthInt(startMonth), getYearInt(startYear));
+    endDate= Date(getDayInt(endDay),getMonthInt(endMonth),getYearInt(endYear));
+    triplength = getTripLength( );
+    cerr << destination <<endl;
+    cerr << triplength <<endl;
+    plannedDays = 0;
+    dailyPlan = new Day*[triplength];
+    for(int i=0;i<triplength; ++i){
+        dailyPlan[i]=0;
+    }
+
+
+}
+
 Itinerary::Itinerary(int sm,int sd,int sy, int em,int ed,int ey):startDate(sm,sd,sy), endDate(em,ed,ey),actCount(0){
     startDateStr = startDate.makeStrDate();
     endDateStr = endDate.makeStrDate();
-    cout<<startDateStr<<endl;
+    cerr<<startDateStr<<endl;
     triplength = getTripLength( );
     plannedDays = 0;
     dailyPlan = new Day*[triplength];
     for(int i=0;i<triplength; ++i){
         dailyPlan[i]=0;
     }
-    cout << "Where are you headed?"<< endl; 
-    getline(cin, destination);
+    //cerr << "Where are you headed?"<< endl; 
+    // get_and_start_trip(75);
+    //getline(cin, destination);
+   // cerr<<destination<<endl;*/
 
 }
 void Itinerary::planNewDay(){ 
         ++plannedDays;
         dailyPlan[plannedDays]= new Day;
         bool running=1;
-        cout<<"Planning day "<<plannedDays<< "! " <<endl;
+        cerr<<"Planning day "<<plannedDays<< "! " <<endl;
         while (running){
             std::string activity;
-            cout << "Enter Activity number ("<< actCount+1<< ") for day " << plannedDays << ":";
+            cerr << "Enter Activity number ("<< actCount+1<< ") for day " << plannedDays << ":";
             cin >> activity;
             dailyPlan[plannedDays]->addActivity(activity);
             int yes=0;
-            cout << "add another activity? Yes(1)/No(0): ";
+            cerr << "add another activity? Yes(1)/No(0): ";
             cin >> yes;
             if (yes==0){
                 running=0;
@@ -98,8 +136,53 @@ void Itinerary::put_in_global_mem(int offset) {
     _put_int(offset, gm_size);
 }
 
+
+void Itinerary::get_and_start_trip(int offset){
+    //gm_size = _get_int(offset);
+    string startDay;
+    string startMonth;
+    string startYear;
+    string endDay;
+    string endMonth;
+    string endYear;
+
+    cerr <<"hey"<< endl;
+    //cerr <<_global_mem[offset]<< endl;
+    destination = _global_mem + offset;
+    //cerr<< destination.length()<< endl;
+    //int startDay = _get_int(_global_mem +85);
+    startDay = _global_mem + offset + 25;
+    startMonth = _global_mem + offset + 25 +3;
+    startYear = _global_mem + offset + 25 + 3 + 3;
+    endDay = _global_mem + offset + 25 + 3 + 3+5;
+    endMonth = _global_mem + offset + 25 + 3 + 3+5+3;
+    endYear =_global_mem + offset + 25 + 3 + 3+5+3+3;
+    //endDateStr= _global_mem + offset+destination.length()+startDateStr.length();
+    cerr<< destination<< endl;
+    //cerr<< startDay<< endl;
+   // cerr<< endDateStr<< endl;
+    cerr<< getDayInt(startDay) << endl;
+    cerr<< getMonthInt(startMonth) << endl;
+    cerr<< getYearInt(startYear) << endl;
+    cerr<< getDayInt(endDay) << endl;
+    cerr<< getMonthInt(endMonth) << endl;
+    cerr<< getYearInt(endYear) << endl;
+    startDate =Date( getDayInt(startDay) ,getMonthInt(startMonth), getYearInt(startYear));
+    endDate= Date(getDayInt(endDay),getMonthInt(endMonth),getYearInt(endYear));
+    //triplength = getTripLength( );
+    cerr<< triplength << endl;
+
+
+   // cerr<< endDateStr<< endl;
+   // cerr <<"hey"<< endl;   
+}
+
+
+
+
+
 void Itinerary::get_from_global_mem(int offset) {
-    cout<< "test"<< endl;
+    cerr<< "test"<< endl;
     gm_size = _get_int(offset);
     destination = _global_mem+offset+4;
     int len_dest = destination.length()+1;
@@ -109,18 +192,51 @@ void Itinerary::get_from_global_mem(int offset) {
     int len_endDate = endDateStr.length()+1;
     triplength = _get_int(offset+4+ len_dest+ len_startDate+len_endDate);
     actCount = _get_int(offset+4+len_dest+ len_startDate+len_endDate+triplength);
-    cout << actCount << endl;
+    cerr << actCount << endl;
     string test = _global_mem +offset+4+len_dest+ len_startDate+len_endDate+triplength+ actCount+50;
-    cout << test << endl;
+    cerr << test << endl;
     string activities[actCount];
-    cout<< "test" <<endl;
+    cerr<< "test" <<endl;
     int setOff = 0;
     for(int i=0; i<actCount; ++i){
         setOff+=50;
         activities[i] = _global_mem +offset+4+len_dest+ len_startDate+len_endDate+triplength+ actCount+setOff;
     }
-    cout << triplength << endl;
-    cout << actCount << endl;
+    cerr << triplength << endl;
+    cerr << actCount << endl;
     for(int i=0; i<actCount; ++i){
-    cout << activities[i] << endl;}    
+    cerr << activities[i] << endl;
+    }    
 }
+
+
+int Itinerary::getDayInt(string day) {
+    int dayInt;
+    stringstream ss;
+    ss << day;
+    ss >> dayInt;
+    return dayInt;
+}
+
+
+
+int Itinerary::getMonthInt(string month) {
+    int monthInt;
+    stringstream ss;
+    ss << month;
+    ss >> monthInt;
+    return monthInt;
+}
+
+int Itinerary::getYearInt(string year) {
+    int yearInt;
+    stringstream ss;
+    ss << year;
+    ss >> yearInt;
+    return yearInt;
+}
+
+
+
+
+
