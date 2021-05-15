@@ -1,12 +1,80 @@
 - Button:
     id: Socials
     style:
+      alignItems: center
+      justifyContent: center 
       position: absolute 
       left: 30%
       top:  80%
-      width: 100
+      width: 110
       height: 100
-      backgroundColor: orange
+      backgroundColor: lightseagreen
     on_touch:
       backgroundColor: rgb(100, 0, 255)
-    
+    children:
+      - Text:
+          style:
+            color: grey
+            fontSize: 20
+            height: 50
+          index: 79
+- Button:
+    id: Add
+    style:
+      alignItems: center
+      justifyContent: center
+      position: absolute 
+      left: 40%
+      top:  80%
+      width: 110
+      height: 100
+    on_touch:
+      backgroundColor: rgb(0, 100, 255)
+    children:
+      - Image:
+          source: add.png
+          style:
+            width: 99
+            height: 99
+- Button:
+    id: User
+    style:
+      alignItems: center
+      justifyContent: center
+      position: absolute 
+      left: 50%
+      top:  80%
+      width: 110
+      height: 100
+      backgroundColor: lightseagreen
+    on_touch:
+      backgroundColor: rgb(255, 100, 0)
+    children:
+      - Text:
+          style:
+            position: center
+            color: grey
+            fontSize: 20
+            height: 50
+          index: 98
+- Button:
+    id: Back
+    style:
+      alignItems: center
+      justifyContent: center
+      position: absolute 
+      left: 60%
+      top:  80%
+      width: 110
+      height: 100
+      backgroundColor: lightseagreen
+    on_touch:
+      backgroundColor: rgb(255, 100, 0)
+    children:
+      - Text:
+          style:
+            position: center
+            color: grey
+            fontSize: 20
+            height: 50
+          index: 47

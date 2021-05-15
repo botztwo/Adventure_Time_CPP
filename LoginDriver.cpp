@@ -14,14 +14,18 @@ int main(){
   _put_raw(52, "Username:");
   _put_raw(62, "Password:");
   _put_raw(72, "Email:");
-  _put_raw(79, "Home Page");
-  _put_raw(89, "Add Trip");
-  _put_raw(98, "User Page");
+  _put_raw(79, "Home_Page");
+  _put_raw(89, "Add_Trip");
+  _put_raw(98, "User_Page");
   //108;
   int gcount1 = 109;
   char page = 'l';
   if (_just_starting()){
     page = 'l';
+    _global_mem[113] = 0;
+    _global_mem[123] = 0;
+    _global_mem[133] = 0;
+    _global_mem[153] = 0;
     _put_char(108,page);
   }
   else {
@@ -43,11 +47,10 @@ int main(){
         _put_char(108,page);
         cerr << "This page is" << _global_mem[108] << endl;
       }
-      else{
+    else{
         cerr << "Incorrect Login! Try Again!" << endl;
         page = 'l';
         _put_char(108,page);
-        
       }
     }
     else if (_event_id_is("Exit")){
@@ -55,6 +58,15 @@ int main(){
       page = 'l';
       cerr << "Exit page is " << page << endl;
       cerr << _global_mem[108] << endl;
+    }
+    else if (_event_id_is("Socials")){
+      //come back to this
+    }
+    else if ( _event_id_is("Add")){
+      //start Bennet's page
+    }
+    else if (_event_id_is("Back")){
+      page = 'l';
     }
   }
   //page turning
