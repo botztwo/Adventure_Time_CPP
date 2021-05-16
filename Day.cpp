@@ -23,7 +23,7 @@ using namespace std;
 
     void Day::display(){
         for(int i=0; i<count; ++i){
-           cout<<i+1<< ")" << activities[i] << endl;
+           cerr<<i+1<< ")" << activities[i] << endl;
         }
     }
 

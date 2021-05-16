@@ -6,4 +6,122 @@
       top: 6%
       fontSize: 40
       color: lightseagreen
-    index: 120
+    index: 122
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 50%
+      top: 6%
+      fontSize: 40
+      color: lightseagreen
+    index: 140
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 50%
+      top: 16%
+      fontSize: 40
+      color: lightseagreen
+    index: 155
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 50%
+      top: 26%
+      fontSize: 40
+      color: lightseagreen
+    index: 170
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 50%
+      top: 36%
+      fontSize: 40
+      color: lightseagreen
+    index: 200
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 15%
+      top: 15.5%
+      fontSize: 40
+      color: lightseagreen
+    index: 215
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 20%
+      top: 15.5%
+      fontSize: 40
+      color: lightseagreen
+    index: 230
+- Button:
+    id: add
+    style:
+      alignItems: center
+      justifyContent: center 
+      position: absolute 
+      left: 15%
+      top:  40%
+      width: 120
+      height: 50
+      borderRadius: 25
+      backgroundColor: lightseagreen
+    on_touch:
+      backgroundColor: pink
+    children:
+      - Text:
+          style:
+            position: center
+            color: black
+            fontSize: 20
+            height: 50
+          index: 245
+- TextInput:
+    style:
+      position: absolute
+      left: 15%
+      top: 22%
+      width: 300
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: 250
+    len: 30
+- TextInput:
+    style:
+      position: absolute
+      left: 15%
+      top: 27%
+      width: 300
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: 280
+    len: 30
+- TextInput:
+    style:
+      position: absolute
+      left: 15%
+      top: 32%
+      width: 300
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: 310
+    len: 30

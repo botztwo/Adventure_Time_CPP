@@ -15,6 +15,7 @@ Itinerary::Itinerary(int offset):actCount(0){
     string endDay;
     string endMonth;
     string endYear;
+    plannedDays = 0;
     //cerr <<"hey"<< endl;
     //cerr <<_global_mem[offset]<< endl;
     destination = _global_mem + offset;
@@ -32,6 +33,8 @@ Itinerary::Itinerary(int offset):actCount(0){
     cerr<< getYearInt(endYear) << endl;
     startDate =Date(getDayInt(startDay) ,getMonthInt(startMonth), getYearInt(startYear));
     endDate= Date(getDayInt(endDay),getMonthInt(endMonth),getYearInt(endYear));
+    startDateStr = startDate.makeStrDate();
+    endDateStr = endDate.makeStrDate();
     triplength = getTripLength( );
     cerr << destination <<endl;
     cerr << triplength <<endl;
@@ -40,8 +43,6 @@ Itinerary::Itinerary(int offset):actCount(0){
     for(int i=0;i<triplength; ++i){
         dailyPlan[i]=0;
     }
-
-
 }
 
 Itinerary::Itinerary(int sm,int sd,int sy, int em,int ed,int ey):startDate(sm,sd,sy), endDate(em,ed,ey),actCount(0){
@@ -167,7 +168,7 @@ void Itinerary::get_and_start_trip(int offset){
     cerr<< getDayInt(endDay) << endl;
     cerr<< getMonthInt(endMonth) << endl;
     cerr<< getYearInt(endYear) << endl;
-    startDate =Date( getDayInt(startDay) ,getMonthInt(startMonth), getYearInt(startYear));
+    startDate =Date(getDayInt(startDay) ,getMonthInt(startMonth), getYearInt(startYear));
     endDate= Date(getDayInt(endDay),getMonthInt(endMonth),getYearInt(endYear));
     //triplength = getTripLength( );
     cerr<< triplength << endl;
@@ -178,6 +179,37 @@ void Itinerary::get_and_start_trip(int offset){
 }
 
 
+
+
+void Itinerary::get_activities_from_global_mem(){
+    cerr<< "test " <<endl;
+    ++plannedDays;
+     cerr<<"Planning day "<<plannedDays<< "! " <<endl;
+    dailyPlan[plannedDays]= new Day;
+    int offset= 250;
+    for(int i=0; i< 3; ++i){
+        string activity = _global_mem +offset;
+        cerr << activity <<endl;
+        offset +=30;
+        dailyPlan[plannedDays]->addActivity(activity);
+        //dailyPlan[plannedDays]->display();
+    }
+    dailyPlan[plannedDays]->display();
+    //cerr<< activity <<endl;
+    //dailyPlan[plannedDays]->addActivity(activity);
+    //dailyPlan[plannedDays]->display();
+   /* string activities[1];
+    cerr<< "test" <<endl;
+    //int setOff = 0;
+    for(int i=0; i<actCount; ++i){
+       // setOff+=50;
+        activities[i] = _global_mem + 205;
+       
+    }
+     cerr<<activities[0]<<endl;*/
+
+
+}
 
 
 
@@ -234,6 +266,14 @@ int Itinerary::getYearInt(string year) {
     ss << year;
     ss >> yearInt;
     return yearInt;
+}
+string Itinerary::InttoStr(int as) {
+    string numstr;
+    stringstream ss;
+    ss << as;
+    ss >> numstr;
+    return numstr;
+
 }
 
 
