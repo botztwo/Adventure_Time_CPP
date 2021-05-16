@@ -11,19 +11,24 @@ using namespace std;
 
 
 class Itinerary{
-    string destination;
-    string startDateStr;
-    string endDateStr;
+  // string destination;
+    /*string startDateStr;
+    string endDateStr;*/
     Date startDate;
     Date endDate;
     int triplength;
     Day**dailyPlan;
-    int plannedDays;
+    //int plannedDays;
     int gm_size;
     const char *tempDest;
-    int actCount;
+    //int actCount;
    
     public:
+     string destination;
+    string startDateStr;
+    string endDateStr;
+     int plannedDays;
+     int actCount;
     Itinerary(int sm,int sd,int sy, int em,int ed,int ey); 
     Itinerary(int offset);
     int getTripLength();
@@ -36,6 +41,8 @@ class Itinerary{
     int getDayInt(string day);
     int getMonthInt(string month);
     int getYearInt(string year);
+    string InttoStr(int as);
+    void get_activities_from_global_mem();
 };
 #endif
 
