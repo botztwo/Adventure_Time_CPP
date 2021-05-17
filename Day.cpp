@@ -18,7 +18,7 @@ using namespace std;
     void Day::addActivity(std::string act){
          activities[count] = act;
          ++count;
-        // cout<< count << endl;
+        // cerr<< count << endl;
     }
 
     void Day::display(){

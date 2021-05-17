@@ -1,0 +1,63 @@
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 15%
+      top: 15%
+      fontSize: 40
+      color: lightseagreen
+    index: 710
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 40%
+      top: 15%
+      fontSize: 40
+      color: lightseagreen
+    index: 2504
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 15%
+      top: 20%
+      fontSize: 40
+      color: lightseagreen
+    index: 732
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 36%
+      top: 20%
+      fontSize: 40
+      color: lightseagreen
+    index: 757
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 47%
+      top: 20%
+      fontSize: 40
+      color: lightseagreen
+    index: 770
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 66%
+      top: 20%
+      fontSize: 40
+      color: lightseagreen
+    index: 795
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 66%
+      top: 20%
+      fontSize: 40
+      color: lightseagreen
+    index: 2545

@@ -16,7 +16,6 @@ class Itinerary{
     string endDateStr;*/
     Date startDate;
     Date endDate;
-    int triplength;
     Day**dailyPlan;
     //int plannedDays;
     int gm_size;
@@ -24,7 +23,8 @@ class Itinerary{
     //int actCount;
    
     public:
-     string destination;
+    int triplength;
+    string destination;
     string startDateStr;
     string endDateStr;
      int plannedDays;
@@ -43,6 +43,8 @@ class Itinerary{
     int getYearInt(string year);
     string InttoStr(int as);
     void get_activities_from_global_mem();
+    int StrtoInt(string as);
+    void put_strings_in_global_mem(int offset);
 };
 #endif
 

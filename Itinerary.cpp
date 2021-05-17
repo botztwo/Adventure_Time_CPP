@@ -16,7 +16,7 @@ Itinerary::Itinerary(int offset):actCount(0){
     string endMonth;
     string endYear;
     plannedDays = 0;
-    //cerr <<"hey"<< endl;
+    cerr <<plannedDays<< endl;
     //cerr <<_global_mem[offset]<< endl;
     destination = _global_mem + offset;
     startDay = _global_mem + offset + 25;
@@ -127,15 +127,31 @@ void Itinerary::put_in_global_mem(int offset) {
     _put_int(offset+4+ len_dest+ len_startDateStr+len_endDateStr,triplength);
     _put_int(offset+4+len_dest+ len_startDateStr+len_endDateStr+triplength, actCount);
     int setOff= 0;
-    for(int i = 0; i< plannedDays; ++i){
-        for(int j=0; j< actCount;++j){
-            setOff+=50;
-            _put_raw(offset+4+ len_dest+ len_startDateStr + len_endDateStr + triplength+ actCount +setOff, (dailyPlan[i+1]->getActivity(j)).c_str());
+    for(int i = 0; i< triplength; ++i){
+        for(int j=0; j< 4;++j){
+            setOff+=20;
+            _put_raw(offset+4+ len_dest+ len_startDateStr + len_endDateStr + triplength+ actCount +setOff, (dailyPlan[i]->getActivity(j)).c_str());
         }
     }
     gm_size = 4 + len_dest + len_startDateStr + len_endDateStr + triplength + actCount;
     _put_int(offset, gm_size);
 }
+
+
+void Itinerary::put_strings_in_global_mem(int offset){
+    int setOff= 0;
+    for(int i = 0; i< triplength; ++i){
+        for(int j=0; j< 4;++j){
+            setOff+=20;
+            _put_raw(offset+setOff, (dailyPlan[i]->getActivity(j)).c_str());
+        }
+    }
+
+
+
+}
+
+
 
 
 void Itinerary::get_and_start_trip(int offset){
@@ -185,21 +201,26 @@ void Itinerary::get_activities_from_global_mem(){
     cerr<< "testing we hit function  next print shoudl be 1" <<endl;
     //++plannedDays;
      cerr << plannedDays <<endl;
-     cerr<<"Planning day "<<plannedDays<< "! " <<endl;
-    dailyPlan[plannedDays]= new Day;
-    int offset= 250;
-    for(int i=0; i< 3; ++i){
-        string activity = _global_mem +offset;
-        cerr << activity <<endl;
-        offset +=30;
-        dailyPlan[plannedDays]->addActivity(activity);
-        //dailyPlan[plannedDays]->display();
+     cerr<<"Planning day "<<plannedDays+1<< "! " <<endl;
+    //dailyPlan[plannedDays]= new Day;
+    int offset= 2000;
+    for(int i=0; i< triplength; ++i){
+        dailyPlan[plannedDays]= new Day;
+        for(int j=0; j<4; ++j){
+                string activity = _global_mem +offset;
+                cerr << activity <<endl;
+                dailyPlan[plannedDays]->addActivity(activity);
+                offset +=40;
+
+        }
+        ++plannedDays;
+        
     }
-    dailyPlan[plannedDays]->display();
-    ++plannedDays;
+    /*dailyPlan[plannedDays]->display();
+    ++plannedDays;*/
     //cerr<< activity <<endl;
     //dailyPlan[plannedDays]->addActivity(activity);
-    //dailyPlan[plannedDays]->display();
+    dailyPlan[1]->display();
    /* string activities[1];
     cerr<< "test" <<endl;
     //int setOff = 0;
@@ -236,6 +257,9 @@ void Itinerary::get_from_global_mem(int offset) {
         setOff+=50;
         activities[i] = _global_mem +offset+4+len_dest+ len_startDate+len_endDate+triplength+ actCount+setOff;
     }
+     cerr << destination << endl;
+      cerr << startDateStr << endl;
+       cerr << endDateStr << endl;
     cerr << triplength << endl;
     cerr << actCount << endl;
     for(int i=0; i<actCount; ++i){

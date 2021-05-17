@@ -1,0 +1,9 @@
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 50%
+      top: 50%
+      fontSize: 40
+      color: lightseagreen
+    index: 4000
