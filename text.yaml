@@ -1,0 +1,19 @@
+- View:
+    id: Testing
+    style:
+      alignItems: center
+      justifyContent: center 
+      position: absolute 
+      left: 5%
+      top:  {x}
+      width: 50%
+      height: 100
+      backgroundColor: lightseagreen
+    children:
+      - Text:
+          style:
+            position: center
+            color: black
+            fontSize: 20
+            height: 50
+          index: {index}

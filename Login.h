@@ -26,6 +26,7 @@ class User_info{
     public:
         int followed;
         int follow;
+        const int text_index_1 = 20;
         User_info();
         void Test_for_Lab();
         bool IsloggedIn(); 
