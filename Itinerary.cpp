@@ -182,8 +182,9 @@ void Itinerary::get_and_start_trip(int offset){
 
 
 void Itinerary::get_activities_from_global_mem(){
-    cerr<< "test " <<endl;
-    ++plannedDays;
+    cerr<< "testing we hit function  next print shoudl be 1" <<endl;
+    //++plannedDays;
+     cerr << plannedDays <<endl;
      cerr<<"Planning day "<<plannedDays<< "! " <<endl;
     dailyPlan[plannedDays]= new Day;
     int offset= 250;
@@ -195,6 +196,7 @@ void Itinerary::get_activities_from_global_mem(){
         //dailyPlan[plannedDays]->display();
     }
     dailyPlan[plannedDays]->display();
+    ++plannedDays;
     //cerr<< activity <<endl;
     //dailyPlan[plannedDays]->addActivity(activity);
     //dailyPlan[plannedDays]->display();
@@ -269,6 +271,14 @@ int Itinerary::getYearInt(string year) {
 }
 string Itinerary::InttoStr(int as) {
     string numstr;
+    stringstream ss;
+    ss << as;
+    ss >> numstr;
+    return numstr;
+
+}
+int Itinerary::StrtoInt(string as) {
+    int numstr;
     stringstream ss;
     ss << as;
     ss >> numstr;

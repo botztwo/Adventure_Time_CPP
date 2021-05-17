@@ -1,0 +1,88 @@
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 15%
+      top: {x1}
+      fontSize: 40
+      color: lightseagreen
+    index: 215
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 30%
+      top: {x1}
+      fontSize: 40
+      color: lightseagreen
+    index: {day_index}
+- TextInput:
+    style:
+      position: absolute
+      left: 15%
+      top: {x2}
+      width: 300
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: {index_1}
+    len: 450
+- TextInput:
+    style:
+      position: absolute
+      left: 15%
+      top: {x3}
+      width: 300
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: {index_2}
+    len: 490
+- TextInput:
+    style:
+      position: absolute
+      left: 15%
+      top: {x4}
+      width: 300
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: {index_3}
+    len: 530
+- TextInput:
+    style:
+      position: absolute
+      left: 15%
+      top: {x5}
+      width: 300
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: {index_4}
+    len: 530
+- TextInput:
+    style:
+      position: absolute
+      left: 15%
+      top: {x5}
+      width: 300
+      height: 40
+      fontSize: 20
+      color: black
+      borderColor: grey
+      borderWidth: 1
+      borderRadius: 25
+    index: {index_5}
+    len: 530

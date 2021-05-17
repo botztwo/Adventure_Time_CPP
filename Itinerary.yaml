@@ -11,8 +11,8 @@
     style:
       position: absolute
       fontWeight: bold
-      left: 50%
-      top: 6%
+      left: 69%
+      top: 16%
       fontSize: 40
       color: lightseagreen
     index: 140
@@ -20,8 +20,8 @@
     style:
       position: absolute
       fontWeight: bold
-      left: 50%
-      top: 16%
+      left: 69%
+      top: 21%
       fontSize: 40
       color: lightseagreen
     index: 155
@@ -29,7 +29,7 @@
     style:
       position: absolute
       fontWeight: bold
-      left: 50%
+      left: 69%
       top: 26%
       fontSize: 40
       color: lightseagreen
@@ -38,37 +38,19 @@
     style:
       position: absolute
       fontWeight: bold
-      left: 50%
-      top: 36%
+      left: 69%
+      top: 30%
       fontSize: 40
       color: lightseagreen
     index: 200
-- Text:
-    style:
-      position: absolute
-      fontWeight: bold
-      left: 15%
-      top: 15.5%
-      fontSize: 40
-      color: lightseagreen
-    index: 215
-- Text:
-    style:
-      position: absolute
-      fontWeight: bold
-      left: 20%
-      top: 15.5%
-      fontSize: 40
-      color: lightseagreen
-    index: 230
 - Button:
     id: add
     style:
       alignItems: center
       justifyContent: center 
       position: absolute 
-      left: 15%
-      top:  40%
+      left: 50%
+      top:  50%
       width: 120
       height: 50
       borderRadius: 25
@@ -82,46 +64,71 @@
             color: black
             fontSize: 20
             height: 50
-          index: 245
-- TextInput:
+          index: 240
+- Text:
     style:
       position: absolute
-      left: 15%
-      top: 22%
-      width: 300
-      height: 40
-      fontSize: 20
-      color: black
-      borderColor: grey
-      borderWidth: 1
-      borderRadius: 25
-    index: 250
-    len: 30
-- TextInput:
+      fontWeight: bold
+      left: 55%
+      top: 6%
+      fontSize: 40
+      color: lightseagreen
+    index: 340
+- Text:
     style:
       position: absolute
-      left: 15%
-      top: 27%
-      width: 300
-      height: 40
-      fontSize: 20
-      color: black
-      borderColor: grey
-      borderWidth: 1
-      borderRadius: 25
-    index: 280
-    len: 30
-- TextInput:
+      fontWeight: bold
+      left: 50%
+      top: 16%
+      fontSize: 40
+      color: lightseagreen
+    index: 370
+- Text:
     style:
       position: absolute
-      left: 15%
-      top: 32%
-      width: 300
-      height: 40
-      fontSize: 20
-      color: black
-      borderColor: grey
-      borderWidth: 1
+      fontWeight: bold
+      left: 50%
+      top: 21%
+      fontSize: 40
+      color: lightseagreen
+    index: 390
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 50%
+      top: 26%
+      fontSize: 40
+      color: lightseagreen
+    index: 410
+- Button:
+    id: summary
+    style:
+      alignItems: center
+      justifyContent: center 
+      position: absolute 
+      left: 60%
+      top:  50%
+      width: 120
+      height: 50
       borderRadius: 25
-    index: 310
-    len: 30
+      backgroundColor: lightseagreen
+    on_touch:
+      backgroundColor: pink
+    children:
+      - Text:
+          style:
+            position: center
+            color: black
+            fontSize: 20
+            height: 50
+          index: 420
+- Text:
+    style:
+      position: absolute
+      fontWeight: bold
+      left: 50%
+      top: 30%
+      fontSize: 40
+      color: lightseagreen
+    index: 425
