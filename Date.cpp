@@ -4,8 +4,8 @@
 using namespace std;
 
 
-
-Date::Date(int sm,int sd,int sy/*, int em,int ed,int ey*/){
+//Date object 
+Date::Date(int sm,int sd,int sy){
 
     setMonth(sm);
     setDay(sd);
@@ -27,7 +27,7 @@ int Date:: getDay(){
 }
 
 
-void Date:: setMonth(int m){
+void Date:: setMonth(int m){ //initalizes the start month
     if(m >=1 && m <= 12){
     month = m;
     }
@@ -38,7 +38,7 @@ int Date:: getMonth(){
     return month;
 }
 
-void Date:: setYear(int y){
+void Date:: setYear(int y){//initalizes the start year
     year = y;  
 }
 
@@ -76,28 +76,17 @@ string Date::getYearStr(){
 
 }
 
-/*void Date::Datetostring(){
-    string str;
-    stringstream ss;
-    ss<< getMonth();
-    ss >>str;
-    cout<<"string rep test     " << str << endl;
-}*/
-
 void Date:: print() {
     std::cerr << "Date " << std::endl;
     std::cerr<<setfill('0') <<setw(2) <<getMonth()<<"/"
                             << setw(2)<<getDay()<< "/" 
                             << setw(4) << getYear() << endl;}
 string Date::makeStrDate() {
-   // std::cerr << "Date " << std::endl;
     string date;
     stringstream ss;
     ss<< setfill('0')  << setw(2) << getMonthStr() + "/"<< setw(2)<<getDayStr() + "/" << setw(4) << getYearStr();
-    //ss<< getMonthStr() + "/" <<getDayStr() + "/"<< getYearStr();
     ss>>date;
     return date;
-    //use string stream as wel
     }
 
 

@@ -5,22 +5,24 @@
 using namespace std;
 
 
+
+//day object has a string of activities; these are what used in the itinerary 
     Day::Day(){
         count = 0;
         size= DEFAULT_SIZE;
         activities = new std::string[size];
-        /*for(int i =0; i< DEFAULT_SIZE; ++i){
-            activities[i]=0;
-        }*/
-
     }
 
+
+//add a new activity 
     void Day::addActivity(std::string act){
          activities[count] = act;
          ++count;
-        // cerr<< count << endl;
+       
     }
 
+
+/// display your plans
     void Day::display(){
         for(int i=0; i<count; ++i){
            cerr<<i+1<< ")" << activities[i] << endl;
