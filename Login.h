@@ -12,11 +12,11 @@
 using namespace std;
 class User_info{
     private:
-        string password;
-        string email;
         int count;
     protected:
         string username;
+        string password;
+        string email;
         string un;
         string pw;
         int choice;
