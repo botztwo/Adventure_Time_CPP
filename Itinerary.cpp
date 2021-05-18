@@ -7,8 +7,8 @@
 #include"../react.h"
 using namespace std;
 
-
-Itinerary::Itinerary(int offset):actCount(0){
+//itinerary obj
+Itinerary::Itinerary(int offset):actCount(0){ // creates a itinerary object from what the user inputs. gets from correct location in global mem.
     string startDay;
     string startMonth;
     string startYear;
@@ -17,7 +17,6 @@ Itinerary::Itinerary(int offset):actCount(0){
     string endYear;
     plannedDays = 0;
     cerr <<plannedDays<< endl;
-    //cerr <<_global_mem[offset]<< endl;
     destination = _global_mem + offset;
     startDay = _global_mem + offset + 25;
     startMonth = _global_mem + offset + 25 +3;
@@ -45,7 +44,7 @@ Itinerary::Itinerary(int offset):actCount(0){
     }
 }
 
-Itinerary::Itinerary(int sm,int sd,int sy, int em,int ed,int ey):startDate(sm,sd,sy), endDate(em,ed,ey),actCount(0){
+Itinerary::Itinerary(int sm,int sd,int sy, int em,int ed,int ey):startDate(sm,sd,sy), endDate(em,ed,ey),actCount(0){ // you can create your own Itinerary obj here, input dates.
     startDateStr = startDate.makeStrDate();
     endDateStr = endDate.makeStrDate();
     cerr<<startDateStr<<endl;
@@ -55,15 +54,10 @@ Itinerary::Itinerary(int sm,int sd,int sy, int em,int ed,int ey):startDate(sm,sd
     for(int i=0;i<triplength; ++i){
         dailyPlan[i]=0;
     }
-    //cerr << "Where are you headed?"<< endl; 
-    // get_and_start_trip(75);
-    //getline(cin, destination);
-   // cerr<<destination<<endl;*/
-
 }
-void Itinerary::planNewDay(){ 
+void Itinerary::planNewDay(){ // this will plan one day of your trip, it creates a new Day, an object of an class
         ++plannedDays;
-        dailyPlan[plannedDays]= new Day;
+        dailyPlan[plannedDays]= new Day;// new day object, holds the activities for a day
         bool running=1;
         cerr<<"Planning day "<<plannedDays<< "! " <<endl;
         while (running){
@@ -89,7 +83,7 @@ int countLeapYears(int m, int y ){
     return years / 4 - years / 100 + years / 400;
 }
 
-int Itinerary::getTripLength(){
+int Itinerary::getTripLength(){//gets the trip length 
     const int monthDays[12]= {31, 28, 31, 30, 31, 30,31, 31, 30, 31, 30, 31};
     long int n1 = startDate.getYear()* 365 + startDate.getDay();
     for (int i = 0; i < startDate.getMonth() - 1; i++){
@@ -103,7 +97,7 @@ int Itinerary::getTripLength(){
     return (n2 - n1);
 }
 
-Day& Itinerary:: operator[](int i) {
+Day& Itinerary:: operator[](int i) { // used to view certain days, you can see the activites in that speciifc day.
         if((i-1)< 0) {
             std::cerr << "warning not a vaild index" << std::endl; 
             dailyPlan[0]->display();
@@ -117,7 +111,7 @@ Day& Itinerary:: operator[](int i) {
 
 
 
-void Itinerary::put_in_global_mem(int offset) { 
+void Itinerary::put_in_global_mem(int offset) { // server puts information into global mem,(an itinerary obj)
     int len_dest = destination.length()+1;
     int len_startDateStr = startDateStr.length()+1;
     int len_endDateStr = endDateStr.length()+1;
@@ -137,67 +131,7 @@ void Itinerary::put_in_global_mem(int offset) {
     _put_int(offset, gm_size);
 }
 
-
-void Itinerary::put_strings_in_global_mem(int offset){
-    int setOff= 0;
-    for(int i = 0; i< triplength; ++i){
-        for(int j=0; j< 4;++j){
-            setOff+=20;
-            _put_raw(offset+setOff, (dailyPlan[i]->getActivity(j)).c_str());
-        }
-    }
-
-
-
-}
-
-
-
-
-void Itinerary::get_and_start_trip(int offset){
-    //gm_size = _get_int(offset);
-    string startDay;
-    string startMonth;
-    string startYear;
-    string endDay;
-    string endMonth;
-    string endYear;
-
-    cerr <<"hey"<< endl;
-    //cerr <<_global_mem[offset]<< endl;
-    destination = _global_mem + offset;
-    //cerr<< destination.length()<< endl;
-    //int startDay = _get_int(_global_mem +85);
-    startDay = _global_mem + offset + 25;
-    startMonth = _global_mem + offset + 25 +3;
-    startYear = _global_mem + offset + 25 + 3 + 3;
-    endDay = _global_mem + offset + 25 + 3 + 3+5;
-    endMonth = _global_mem + offset + 25 + 3 + 3+5+3;
-    endYear =_global_mem + offset + 25 + 3 + 3+5+3+3;
-    //endDateStr= _global_mem + offset+destination.length()+startDateStr.length();
-    cerr<< destination<< endl;
-    //cerr<< startDay<< endl;
-   // cerr<< endDateStr<< endl;
-    cerr<< getDayInt(startDay) << endl;
-    cerr<< getMonthInt(startMonth) << endl;
-    cerr<< getYearInt(startYear) << endl;
-    cerr<< getDayInt(endDay) << endl;
-    cerr<< getMonthInt(endMonth) << endl;
-    cerr<< getYearInt(endYear) << endl;
-    startDate =Date(getDayInt(startDay) ,getMonthInt(startMonth), getYearInt(startYear));
-    endDate= Date(getDayInt(endDay),getMonthInt(endMonth),getYearInt(endYear));
-    //triplength = getTripLength( );
-    cerr<< triplength << endl;
-
-
-   // cerr<< endDateStr<< endl;
-   // cerr <<"hey"<< endl;   
-}
-
-
-
-
-void Itinerary::get_activities_from_global_mem(){
+void Itinerary::get_activities_from_global_mem(){ // this gets all the activites a user enters on react 
     cerr<< "testing we hit function  next print shoudl be 1" <<endl;
     //++plannedDays;
      cerr << plannedDays <<endl;
@@ -214,29 +148,12 @@ void Itinerary::get_activities_from_global_mem(){
 
         }
         ++plannedDays;
-        
     }
-    /*dailyPlan[plannedDays]->display();
-    ++plannedDays;*/
-    //cerr<< activity <<endl;
-    //dailyPlan[plannedDays]->addActivity(activity);
+  
     dailyPlan[1]->display();
-   /* string activities[1];
-    cerr<< "test" <<endl;
-    //int setOff = 0;
-    for(int i=0; i<actCount; ++i){
-       // setOff+=50;
-        activities[i] = _global_mem + 205;
-       
-    }
-     cerr<<activities[0]<<endl;*/
-
-
 }
 
-
-
-void Itinerary::get_from_global_mem(int offset) {
+void Itinerary::get_from_global_mem(int offset) { // this is used to get objects from global mem. 
     cerr<< "test"<< endl;
     gm_size = _get_int(offset);
     destination = _global_mem+offset+4;
@@ -268,6 +185,9 @@ void Itinerary::get_from_global_mem(int offset) {
 }
 
 
+
+
+//below are conversions for react. 
 int Itinerary::getDayInt(string day) {
     int dayInt;
     stringstream ss;
@@ -275,8 +195,6 @@ int Itinerary::getDayInt(string day) {
     ss >> dayInt;
     return dayInt;
 }
-
-
 
 int Itinerary::getMonthInt(string month) {
     int monthInt;
@@ -293,6 +211,7 @@ int Itinerary::getYearInt(string year) {
     ss >> yearInt;
     return yearInt;
 }
+
 string Itinerary::InttoStr(int as) {
     string numstr;
     stringstream ss;
@@ -301,6 +220,7 @@ string Itinerary::InttoStr(int as) {
     return numstr;
 
 }
+
 int Itinerary::StrtoInt(string as) {
     int numstr;
     stringstream ss;

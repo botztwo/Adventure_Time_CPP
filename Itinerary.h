@@ -44,7 +44,7 @@ class Itinerary{
     string InttoStr(int as);
     void get_activities_from_global_mem();
     int StrtoInt(string as);
-    void put_strings_in_global_mem(int offset);
+   
 };
 #endif
 
