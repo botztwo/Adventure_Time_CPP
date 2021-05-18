@@ -34,9 +34,7 @@ int main(){
     _global_mem[8123] =0;
     _global_mem[8133] =0;
     //put char puts the page char into global mem so that if the webpage isn't just starting, we can get the value form global mem.
-    _put_char(9108,page);
-   //add_yaml("Dates.yaml");
-   //cerr<< "test test " <<endl;
+   _put_char(9108,page);
   _put_raw(0, "Plan New Trip");  // manual inputs of put raw for the headers and labels.
   _put_raw(21, "Where to?");  // null byte appended automatically
   _put_raw(32, "Start Date: ");
@@ -52,18 +50,15 @@ int main(){
   _put_raw(7079, "Home_Page");
   _put_raw(7089, "Add_Trip");
   _put_raw(7098, "User_Page");
-  //Itinerary mexico(4,25,2021,4,30,2021);
   }
   else{
     cerr << "else here " << endl;//testing 
     User_info jason;//object creation for user and tripplans 
   Itinerary mexico(75);
   cerr << "mexico made " << endl;//testing
-  //int gcount= 67;
   page = _get_char(9108);//get the page that is stored into global mem.
   if (_received_event()) {// controls the user interaction (buttons)
   cerr << "recived " << endl;//testing
-   // add_yaml("Itinerary.yaml");
    if (_event_id_is("Register")) {
      cerr << "register " << endl;
       jason.get_and_register(8109);//run register method when button is toggled
@@ -92,8 +87,6 @@ int main(){
     }
      else if (_event_id_is("Start")) {//toggled with the start planning button 
        page = 'I';
-       //Itinerary mexico( );
-       //mexico.get_and_start_trip(75);
        _put_raw(122, "Itinerary");//getting the perimeters from the text inputs
        _put_raw(140, mexico.destination.c_str());
        _put_raw(155, mexico.startDateStr.c_str());
@@ -138,19 +131,10 @@ int main(){
         if (_received_event()) {//stores activities in the global mem and gets from global mem to display on the next page. 
               if (_event_id_is("add")) {
                 page = 'I';
-                //add_yaml("debug.yaml");
-                /*string placeHold= _global_mem+ 235;
-                mexico.StrtoInt(placeHold);
-                mexico.plannedDays = mexico.StrtoInt(placeHold);;
-                cerr << mexico.plannedDays <<endl;*/
                 mexico.get_activities_from_global_mem();
                 mexico.put_in_global_mem(2500);
-                mexico.put_strings_in_global_mem(4000);
                 mexico.get_from_global_mem(2500);
-                  //_put_raw(230, "a");
-                //cerr << mexico.plannedDays++ <<endl;
-                //_put_raw(235, mexico.InttoStr((mexico.plannedDays)).c_str()); }
-               //cerr << mexico.plannedDays <<endl
+                 
               }
     
     else if (_event_id_is("summary")){//redundant but this part is associated with the complete button that displays a summary 
@@ -164,22 +148,10 @@ int main(){
           _put_raw(770, ", and coming home");
           _put_raw(795, mexico.endDateStr.c_str());
           _put_raw(9500, "Have Fun!");
-          //x1 = 15;
+          
           int fine = 15;
           int y1 = 40;
-          //add_yaml("activity.yaml", {{"index_pos", 4000}, {"xxx", mexico.InttoStr(fine)+"%" }, {"yyy", mexico.InttoStr(y1)+"%" }});
-          //add_yaml("activity.yaml", {{"index_pos", 4000}, {"xxx", mexico.InttoStr(fine)+"%" }, {"yyy", mexico.InttoStr(y1)+"%" }});
-          
-//{yyy}{index_pos}
-//{xxx}
-          /*for(int i=0 ; i<  mexico.triplength; ++i){
-                for(int j=0; i<4 ; ++j){
-                 add_yaml("activity.yaml", {{"index_pos", 4000+(20*j)}, {"xxx", mexico.InttoStr(fine)+"%" }, {"yyy", mexico.InttoStr(y1)+"%" }});
-                 y1 += 5;
-                }
-                fine += 20;
-          }*/
-          //_global_mem[2504];      
+                
         }
               
         }
