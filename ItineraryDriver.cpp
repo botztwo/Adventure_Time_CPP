@@ -1,4 +1,5 @@
 #include "Itinerary.h"
+#include "Login.h"
 #include "Day.h"
 #include "Date.h"
 #include <iostream>
@@ -9,6 +10,7 @@ using namespace std;
 int text_index_1 = 2000,  text_index_2= 2040,  text_index_3=2080,  text_index_4= 2120    /*,  text_index_5 =610 */;
 int x1 = 15.5, x2= 22, x3 =27, x4 =32, x5 = 37/*, x6=42*/;
 int day_index =1000;
+char page = 'l';
 
 int main(){
   //Itinerary mexico(4,25,2021,4,30,2021);
@@ -26,22 +28,67 @@ int main(){
     _global_mem[250] =0;
     _global_mem[280] =0;
     _global_mem[310] =0;
-   add_yaml("Dates.yaml");
+    _global_mem[8113] =0;
+    _global_mem[8123] =0;
+    _global_mem[8133] =0;
+    _put_char(9108,page);
+   //add_yaml("Dates.yaml");
    //cerr<< "test test " <<endl;
   _put_raw(0, "Plan New Trip");  // null byte appended automatically
   _put_raw(21, "Where to?");
   _put_raw(32, "Start Date: ");
   _put_raw(45, "End Date: ");
   _put_raw(57, "Start Planning ");
+  _put_raw(7000, "Welcome to Adventure Time!");
+  _put_raw(7027, "Register");
+  _put_raw(7037, "Login");
+  _put_raw(7047, "Exit");
+  _put_raw(7052, "Username:");
+  _put_raw(7062, "Password:");
+  _put_raw(7072, "Email:");
+  _put_raw(7079, "Home_Page");
+  _put_raw(7089, "Add_Trip");
+  _put_raw(7098, "User_Page");
   //Itinerary mexico(4,25,2021,4,30,2021);
   }
   else{
+    cerr << "else here " << endl;
+    User_info jason;
   Itinerary mexico(75);
+  cerr << "mexico made " << endl;
   int gcount= 67;
+  page = _get_char(9108);
   if (_received_event()) {
+  cerr << "recived " << endl;
    // add_yaml("Itinerary.yaml");
-     if (_event_id_is("Start")) {
-       add_yaml("Itinerary.yaml");
+   if (_event_id_is("Register")) {
+     cerr << "register " << endl;
+      jason.get_and_register(8109);
+      page = 'l';
+      _put_char(9108,page);
+    } 
+    else if (_event_id_is("Login")) {
+           cerr << "login " << endl;
+
+      if (jason.check_and_login(8109)){
+        page = 'D';
+        _put_char(9108,page);
+        //cerr << "This page is" << _global_mem[9108] << endl;
+      }
+    else{
+        cerr << "Incorrect Login! Try Again!" << endl;
+        page = 'l';
+        _put_char(9108,page);
+      }
+    }
+    else if (_event_id_is("Exit")){
+      cerr << "Exit Ran" << endl;
+      page = 'l';
+      cerr << "Exit page is " << page << endl;
+      cerr << _global_mem[9108] << endl;
+    }
+     else if (_event_id_is("Start")) {
+       page = 'I';
        //Itinerary mexico( );
        //mexico.get_and_start_trip(75);
        _put_raw(122, "Itinerary");
@@ -101,7 +148,7 @@ int main(){
         }
         if (_received_event()) {
               if (_event_id_is("add")) {
-                add_yaml("Itinerary.yaml");
+                page = 'I';
                 //add_yaml("debug.yaml");
                 /*string placeHold= _global_mem+ 235;
                 mexico.StrtoInt(placeHold);
@@ -121,12 +168,13 @@ int main(){
           int firststr = 2500 + 4 + mexico.destination.length() +1 +mexico.startDateStr.length()+1 + mexico.endDateStr.length()+1 + +4 +4+17;
           cerr << mexico.triplength <<endl;
           cerr <<_global_mem[4000]<<endl;
-           add_yaml("summary.yaml");
+          page = 'S';
           _put_raw(710, "Enjoy your trip to ");
           _put_raw(732, "You will be leaving on ");
           _put_raw(757, mexico.startDateStr.c_str());
           _put_raw(770, ", and coming home");
           _put_raw(795, mexico.endDateStr.c_str());
+          _put_raw(9500, "Have Fun!");
           //x1 = 15;
           int fine = 15;
           int y1 = 40;
@@ -167,11 +215,23 @@ int main(){
 
  //mexico[1].display();
 }
-
+cerr << "here " << endl;
  //mexico[1].display()
-
-
-
+  if (page == 'l'){
+    add_yaml("login.yaml");
+  }
+  else if (page == 't'){
+    add_yaml("test.yaml");
+  }
+  else if ( page == 'D'){
+    add_yaml("Dates.yaml");
+  }
+  else if (page == 'I'){
+    add_yaml("Itinerary.yaml");
+  }
+  else if (page =='S'){
+    add_yaml("summary.yaml");
+  }
 
   _quit();
 

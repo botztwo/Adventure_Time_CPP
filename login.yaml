@@ -2,7 +2,7 @@
     style:
       color: lightseagreen
       fontSize: 40
-    index: 0
+    index: 7000
 - Button:
     id: Register
     style:
@@ -23,7 +23,7 @@
             color: black
             fontSize: 20
             height: 50
-          index: 27
+          index: 7027
 - Button:
     id: Login
     style:
@@ -44,7 +44,7 @@
             color: black
             fontSize: 20
             height: 50
-          index: 37
+          index: 7037
 - Button:
     id: Exit
     style:
@@ -65,7 +65,7 @@
             color: black
             fontSize: 20
             height: 50
-          index: 47
+          index: 7047
 - Text:
     style:
       position: absolute
@@ -73,7 +73,7 @@
       top: 30%
       color: lightseagreen
       fontSize: 30
-    index: 52
+    index: 7052
 - TextInput:
     style:
       position: absolute
@@ -85,7 +85,7 @@
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 113
+    index: 8113
     len: 10
 - Text:
     style:
@@ -94,7 +94,7 @@
       top: 37%
       color: lightseagreen
       fontSize: 30
-    index: 62
+    index: 7062
 - TextInput:
     style:
       position: absolute
@@ -106,7 +106,7 @@
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 123
+    index: 8123
     len: 10
 - Text:
     style:
@@ -115,7 +115,7 @@
       top: 44%
       color: lightseagreen
       fontSize: 30
-    index: 72
+    index: 7072
 - TextInput:
     style:
       position: absolute
@@ -127,5 +127,5 @@
       color: black
       borderColor: grey
       borderWidth: 1
-    index: 133
+    index: 8133
     len: 20

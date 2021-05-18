@@ -11,7 +11,7 @@
     style:
       position: absolute
       fontWeight: bold
-      left: 30%
+      left: 33%
       top: {x1}
       fontSize: 40
       color: lightseagreen

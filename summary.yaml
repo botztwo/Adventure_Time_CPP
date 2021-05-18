@@ -11,7 +11,7 @@
     style:
       position: absolute
       fontWeight: bold
-      left: 40%
+      left: 42%
       top: 15%
       fontSize: 40
       color: lightseagreen
@@ -29,7 +29,7 @@
     style:
       position: absolute
       fontWeight: bold
-      left: 36%
+      left: 42%
       top: 20%
       fontSize: 40
       color: lightseagreen
@@ -38,7 +38,7 @@
     style:
       position: absolute
       fontWeight: bold
-      left: 47%
+      left: 55%
       top: 20%
       fontSize: 40
       color: lightseagreen
@@ -47,7 +47,7 @@
     style:
       position: absolute
       fontWeight: bold
-      left: 66%
+      left: 80%
       top: 20%
       fontSize: 40
       color: lightseagreen
@@ -56,8 +56,8 @@
     style:
       position: absolute
       fontWeight: bold
-      left: 66%
-      top: 20%
-      fontSize: 40
+      left: 50%
+      top: 70%
+      fontSize: 80
       color: lightseagreen
-    index: 2545
+    index: 9500
