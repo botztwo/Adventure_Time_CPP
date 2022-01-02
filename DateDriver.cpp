@@ -7,10 +7,10 @@ using namespace std;
 
 
 int main(){
-  Date d1(4,29,2012);
+  Date d1(4,1,2012);
   /*Trip d2(3,7,2015);
   Trip d3(12,4,2015);*/
-  d1.makeStrDate();
+  cout<< d1.makeStrDate()<< endl;
   cout<< endl;
   d1.print();
   cout<< endl;
